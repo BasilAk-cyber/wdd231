@@ -1,0 +1,36 @@
+@media(min-width: 768px){
+    .hamburger{
+        display:none;
+    }
+
+    .main-nav{
+        background-color:rgb(27, 26, 26);
+    }
+
+    .main-nav ul {
+        display:flex;
+        flex-direction: row;
+        
+    }
+
+    .student-info{
+        display:grid;
+        grid-template-columns: 2fr 1fr;
+        gap:20px;
+    }
+
+    .courses-name div {
+        width: 30%;
+    }
+
+    .courses-taken{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 25px;
+    }
+
+    .course-div {
+        width: 90%;
+        margin:auto;
+    }
+}
