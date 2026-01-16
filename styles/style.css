@@ -14,11 +14,6 @@ h1, h2, h3, h4, h5, h6, body, p, li, input, textarea {
   font-weight: 700;
 }
 
-/* body, p, li, input, textarea {
-  font-family: var(--body);
-  font-weight: 600;
-} */
-
 body{
     width:100%;
     font-weight: 400;
@@ -55,7 +50,7 @@ header{
 .main-nav.active {
     display: block;
     height:auto;
-    background-color: #D3D3D3;
+    background-color: #fcfbfb;
 }
 
 .main-nav ul li a {
@@ -103,18 +98,17 @@ header{
 
 .page-name{
     margin:10px 0;
-}
-
-.about-me, .student-image{
-   width: 100%;
-   height: auto;
-   background-color:#D3D3D3;
-   border-radius: 4px;
+    font-weight: 800;
+    font-size: 36px;
 }
 
 .about-me, .student-image{
     margin-bottom: 20px;
     padding-bottom: 20px;
+    width: 100%;
+    height: auto;
+    background-color:#D3D3D3;
+    border-radius: 4px;
 }
 
 .about-me h2, .student-image h2, .courses h2{
