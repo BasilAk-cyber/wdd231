@@ -21,7 +21,8 @@ h1, h2, h3, h4, h5, h6, body, p, li, input, textarea {
 
 body{
     width:100%;
-    overflow-x: hidden;  
+    font-weight: 400;
+    /* overflow-x: hidden;   */
 }
 
 header{
@@ -42,18 +43,26 @@ header{
     flex-shrink: 0; 
 }
 
+.site-name img{
+    height: 70%;
+    width: 30px;
+}
+
 .main-nav{
-    height:auto;
-    background-color: #D3D3D3;
+    display: none;
 }
 
 .main-nav.active {
-    display: none;
+    display: block;
+    height:auto;
+    background-color: #D3D3D3;
 }
 
 .main-nav ul li a {
     text-decoration: none;
     color: white;
+    display: block; 
+    width: 100%;
 }
 
 .main-nav-div{
@@ -74,6 +83,7 @@ header{
     border-radius: 4px;
     background-color: white;
     color:rgb(27, 26, 26);
+    cursor: pointer;
 }
 
 .bar {
