@@ -46,42 +46,56 @@ function createMemberCard(member) {
   
   const businessNameDiv = document.createElement('div');
   businessNameDiv.classList.add('business-name-div');
+  
   const businessInfoDiv = document.createElement('div');
-  businessInfoDiv.classList.add('business-info');
+  businessInfoDiv.classList.add('business-info-div');
+  
   card.appendChild(businessNameDiv);
   card.appendChild(businessInfoDiv);
   
-  businessNameDiv.innerHTML =`
-  <p class="business-name">
-    ${member.name}
-  </p>
-  `
+  businessNameDiv.innerHTML = `
+    <p class="business-name">${member.name}</p>
+  `;
   
   businessInfoDiv.innerHTML = `
-
     <div class="business-image">
       <img 
         src="${member.image}" 
         alt="${member.name}" 
         loading="lazy"
         onerror="this.src='images/placeholder.jpg'"
-
       >
     </div>
-    <div class="business-info">
-      <p class="email">
-        ${member.industry}
+    <div class="business-details">
+      <p class="industry">
+        <strong>Industry:</strong> ${member.industry}
       </p>
       <p class="phone-number">
-        ${member.phone}
+        <strong>Phone:</strong> <a href="tel:${member.phone.replace(/\s/g, '')}">${member.phone}</a>
       </p>
       <p class="url">
-        ${member.website}
+        <strong>Website:</strong> <a href="${member.website}" target="_blank" rel="noopener noreferrer">${member.website.replace(/^https?:\/\/(www\.)?/, '')}</a>
       </p>
+      <p class="address">
+        <strong>Address:</strong> ${member.address}
+      </p>
+      <p class="description">${member.description}</p>
+      <span class="membership-badge membership-level-${member.membershipLevel}">
+        ${getMembershipLevel(member.membershipLevel)}
+      </span>
     </div>
-  `
+  `;
   
   return card;
+}
+
+function getMembershipLevel(level) {
+  switch(Number(level)) {
+    case 3: return '🏆 Gold Member';
+    case 2: return '🥈 Silver Member';
+    case 1: 
+    default: return '🥉 Member';
+  }
 }
 
 // TOGGLE VIEW
