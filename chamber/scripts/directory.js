@@ -48,8 +48,8 @@ function createMemberCard(member) {
   businessNameDiv.classList.add('business-name-div');
   const businessInfoDiv = document.createElement('div');
   businessInfoDiv.classList.add('business-info');
-  card.appendChild('businessNameDiv');
-  card.appendChild('businessInfoDiv');
+  card.appendChild(businessNameDiv);
+  card.appendChild(businessInfoDiv);
   
   businessNameDiv.innerHTML =`
   <p class="business-name">
@@ -73,7 +73,7 @@ function createMemberCard(member) {
       <p class="phone-number">
         ${member.phone}
       </p>
-      p class="url">
+      <p class="url">
         ${member.website}
       </p>
     </div>
