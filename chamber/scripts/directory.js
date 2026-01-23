@@ -1,0 +1,1 @@
+const viewGridBtn = document.querySelector('.view-grid');
