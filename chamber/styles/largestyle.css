@@ -1,0 +1,94 @@
+@media(min-width: 768px){
+
+    :root{
+        --color-primary: #006A4E;      
+        --color-secondary: #FFB81C;     
+        --color-background: #F8F9FA;   
+        --color-accent: #002147;        
+        --color-text: #212529;  
+        --color-border: #dee2e6;
+
+        --font-heading: "Montserrat"/* , system-ui, -apple-system, sans-serif */;
+        --font-body: "Open Sans", system-ui, -apple-system, sans-serif;
+        --line-height-body: 1.6;
+        --line-height-heading: 1.2;
+    }
+
+    .site-header{
+        padding-left:40px;
+        padding-right:40px;
+        padding-top:40px;
+
+    }
+
+
+    .main-nav {
+        display:block;
+    }
+
+    .main-nav ul{
+        display:flex;
+        flex-direction:row;
+        justify-content:space-between;
+        gap:40px;
+        color: var(--color-accent);
+    }
+
+    .main-nav ul li a {
+        text-decoration: none;
+        color: var(--color-accent);
+        font-style: var(--font-heading);
+        font-weight:600;
+        padding:10px;
+        border-radius:8px;
+    }
+
+    .main-nav ul li a:hover{
+        background-color: var(--color-accent);
+        color: white;
+    }
+
+    .hamburger{
+        display: none;
+    }
+
+    .hero{
+        height:300px;
+    }
+    .home{
+        display:grid;
+        grid-template-columns:2fr 1fr 1fr;
+        gap:30px;
+    }
+
+    .events, .current-weather, .weather-forecast{
+        border-radius:0;
+    }
+
+    .events p, .current-weather p, .weather-forecast p{
+        border-radius:0;
+    }
+
+    .body-div{
+        margin:40px;
+        margin-top:0px;
+    }
+
+    .business-card-section{
+        display:grid;
+        grid-template-columns:1fr 1fr 1fr;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        gap:30px;
+    }
+
+    footer{
+        background-color:var(--color-border);
+        padding: 20px 40px;
+        display:flex;
+        flex-direction:row;
+        justify-content:space-between;
+        align-items:center;
+    }
+}

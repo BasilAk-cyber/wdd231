@@ -1,0 +1,205 @@
+:root{
+    --color-primary: #006A4E;      
+    --color-secondary: #FFB81C;     
+    --color-background: #F8F9FA;   
+    --color-accent: #002147;        
+    --color-text: #212529;  
+    --color-border: #dee2e6;
+
+    --font-heading: "Montserrat"/* , system-ui, -apple-system, sans-serif */;
+    --font-body: "Open Sans", system-ui, -apple-system, sans-serif;
+    --line-height-body: 1.6;
+    --line-height-heading: 1.2;
+}
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    /* background-color: var(--color-accent); */
+}
+
+.site-header {
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    justify-content: space-between;
+}
+.site-id{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.site-name{
+    font-size: 24px;
+    font-weight: 500;
+    font-family: var(--font-heading);
+    color: var(--color-accent);
+    text-align: center;
+}
+
+.main-nav ul {
+    list-style: none;
+    font-family: var(--font-heading);
+}
+
+.main-nav{
+    display: none;
+}
+
+.main-nav.active{
+    display: block;
+    height:auto;
+    background-color: #fcfbfb;
+}
+
+.main-nav ul li{
+    background-color:var(--color-accent);
+    color: white;
+    height:40px;
+    margin-top:1px;
+    padding: 10px 20px;
+    display: flex;           
+    align-items: center;         
+    justify-content: flex-start;
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: white;
+    display: block; 
+    width: 100%;
+}
+
+.hamburger{
+    height: 40px;
+    width: 40px;
+    border-radius: 4px;
+    background-color: var(--color-background);
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--color-text);
+}
+
+.hero{
+    height:200px;
+}
+
+.cta-btn{
+    padding:10px;
+    background-color:var(--color-accent);
+    border-radius:8px;
+    color:white;
+    width: 130px;
+    text-align:center;
+}
+
+.home{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.body-div{
+    margin:20px;
+    margin-top:0px;
+    /* background-color: var(--color-accent); */
+}
+
+.section-name{
+    font-family: var(--font-heading);
+    color: var(--color-accent);
+    font-size:48px;
+    text-align:left;
+    margin-left:20px;
+    font-weight:800;
+}
+
+.events p, .current-weather p, .weather-forecast p{
+    display:block;
+    background-color:var(--color-accent);
+    font-size:28px;
+    color: white;
+    text-align:center;
+    border-radius:4px;
+    font-family: var(--font-heading);
+}
+
+.events, .current-weather, .weather-forecast{
+    width:100%;
+    height:auto;
+    background-color:var(--color-border);
+    margin-top:20px;
+    border-radius:4px;
+}
+
+.forecast-div, .weather-div, .events-div{
+    padding:20px;
+}
+
+.business-card-section{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.business-card{
+    width:100%;
+    height:200px;
+    background-color:var(--color-border);
+    margin-top:20px;
+    border-radius:12px;
+    font-family: var(--font-heading);
+}
+
+.view-grid{
+    display:block;
+    /* background-color:blue; */
+    margin-top:20px;
+    display:flex;
+    justify-content:end;
+}
+
+.view-grid div{
+    padding:10px;
+    background-color:var(--color-accent);
+    border-radius:8px;
+    color:white;
+}
+
+
+.social-link{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:right;
+    gap:30px;
+}
+
+footer{
+    background-color:var(--color-border);
+    padding: 20px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:right;
+    gap:10px;
+    font-family: var(--font-heading);
+}
+
