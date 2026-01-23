@@ -1,9 +1,10 @@
-// Directory Page JavaScript
-
-// DOM ELEMENTS
 const directoryDisplay = document.querySelector('.business-card-section');
+const businessCard = document.querySelector('.business-card');
+const businessName = document.querySelector('.business-name');
+const email= document.querySelector('.email');
+const phoneNumber = document.querySelector('.phone-number');
+const url= document.querySelector('.url');
 const viewGridBtn = document.querySelector('.view-grid');
-
 let members = [];
 
 // FETCH MEMBERS FROM JSON
