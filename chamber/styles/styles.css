@@ -166,6 +166,21 @@ body{
     margin-top:20px;
     border-radius:12px;
     font-family: var(--font-heading);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.business-name-div{
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+
+.business-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .view-grid{
