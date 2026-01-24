@@ -60,6 +60,9 @@
         grid-template-columns:2fr 1fr 1fr;
         gap:30px;
     }
+    .view-grid{
+        display:block;
+    }
 
     .events, .current-weather, .weather-forecast{
         border-radius:0;
