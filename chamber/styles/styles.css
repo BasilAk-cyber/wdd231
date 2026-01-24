@@ -184,6 +184,7 @@ body{
     border-bottom: 1px solid black;
     text-align: center;
     height: auto;
+    width:100%;
 }
 
 .business-name, .email, .url{
@@ -197,9 +198,10 @@ body{
     height:auto;
 }
 
-.business-info img{
-    height: 80px;
-    width:auto;
+.business-image{
+    height: 90%;
+    width:40%;
+}
 
 .view-grid{
     display:none;
