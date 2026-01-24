@@ -62,7 +62,7 @@
     }
     .view-grid{
      
-        display:none;
+        display:block;
         margin-top:20px;
         display:flex;
         justify-content:end;
