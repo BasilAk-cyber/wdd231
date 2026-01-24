@@ -84,34 +84,44 @@ function createMemberCard(member) {
 }
 
 
-// TOGGLE VIEW
 function toggleView() {
   if (!directoryDisplay) return;
   
   if (directoryDisplay.classList.contains('grid-display')) {
+    // Switch to list view
     directoryDisplay.classList.remove('grid-display');
     directoryDisplay.classList.add('list-display');
-    if (viewGridBtn) viewGridBtn.textContent = 'Display Grid';
+    if (viewGridBtn) {
+      viewGridBtn.innerHTML = '<div>Display Grid</div>';
+    }
     localStorage.setItem('directoryView', 'list');
   } else {
+    // Switch to grid view
     directoryDisplay.classList.remove('list-display');
     directoryDisplay.classList.add('grid-display');
-    if (viewGridBtn) viewGridBtn.textContent = 'Display List';
+    if (viewGridBtn) {
+      viewGridBtn.innerHTML = '<div>Display List</div>';
+    }
     localStorage.setItem('directoryView', 'grid');
   }
 }
 
-// LOAD VIEW PREFERENCE
+// LOAD VIEW PREFERENCE - FIXED
 function loadViewPreference() {
   const savedView = localStorage.getItem('directoryView');
   
   if (savedView === 'list' && directoryDisplay) {
     directoryDisplay.classList.remove('grid-display');
     directoryDisplay.classList.add('list-display');
-    if (viewGridBtn) viewGridBtn.textContent = 'Display Grid';
+    if (viewGridBtn) {
+      viewGridBtn.innerHTML = '<div>Display Grid</div>';
+    }
   } else if (directoryDisplay) {
+    // Default to grid view
     directoryDisplay.classList.add('grid-display');
-    if (viewGridBtn) viewGridBtn.textContent = 'Display List';
+    if (viewGridBtn) {
+      viewGridBtn.innerHTML = '<div>Display List</div>';
+    }
   }
 }
 
