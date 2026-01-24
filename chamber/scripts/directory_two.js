@@ -61,10 +61,9 @@ function createMemberCard(member) {
 
     <div class="business-image">
       <img 
-        src="${member.image}" 
+        src="#" 
         alt="${member.name}" 
         loading="lazy"
-        onerror="this.src='images/placeholder.jpg'"
 
       >
     </div>
