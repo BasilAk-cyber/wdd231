@@ -184,6 +184,9 @@ body{
     border-bottom: 1px solid black;
     text-align: center;
     height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width:100%;
 }
 
@@ -196,11 +199,23 @@ body{
     justify-content: space-between;
     align-items: center;
     height:auto;
+    width:100%;
+}
+
+.business-info div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:auto;
 }
 
 .business-image{
     height: 90%;
     width:40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .view-grid{
