@@ -124,10 +124,10 @@ body{
 .section-name{
     font-family: var(--font-heading);
     color: var(--color-accent);
-    font-size:48px;
+    font-size:32px;
     text-align:left;
     margin-left:20px;
-    font-weight:800;
+    font-weight:700;
 }
 
 .section-head{
@@ -193,13 +193,6 @@ body{
 
 .view-grid{
     display:none;
-}
-
-.view-grid div{
-    padding:10px;
-    background-color:var(--color-accent);
-    border-radius:8px;
-    color:white;
 }
 
 
