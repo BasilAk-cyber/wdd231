@@ -58,15 +58,6 @@ function createMemberCard(member) {
   `;
   
   businessInfoDiv.innerHTML = `
-    <div class="business-image">
-      <img 
-        src="${member.image}" 
-        alt="${member.name}" 
-        loading="lazy"
-        onerror="this.src='images/placeholder.jpg'"
-
-      >
-    </div>
     <div class="business-info">
       <p class="email">
         ${member.industry}
