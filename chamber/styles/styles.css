@@ -226,7 +226,6 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    display:none;
 }
 
 .view-grid{
