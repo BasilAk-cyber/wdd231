@@ -1,13 +1,8 @@
 const directoryDisplay = document.querySelector('.business-card-section');
-const businessCard = document.querySelector('.business-card');
-const businessName = document.querySelector('.business-name');
-const email= document.querySelector('.email');
-const phoneNumber = document.querySelector('.phone-number');
-const url= document.querySelector('.url');
 const viewGridBtn = document.querySelector('.view-grid');
+
 let members = [];
 
-// FETCH MEMBERS FROM JSON
 async function fetchMembers() {
   try {
     directoryDisplay.innerHTML = '<p class="loading">Loading members...</p>';
@@ -34,7 +29,6 @@ async function fetchMembers() {
   }
 }
 
-// DISPLAY MEMBERS
 function displayMembers(memberList) {
   if (!directoryDisplay) return;
   
@@ -46,51 +40,40 @@ function displayMembers(memberList) {
   });
 }
 
-// CREATE MEMBER CARD
 function createMemberCard(member) {
   const card = document.createElement('div');
   card.classList.add('business-card');
   
-  const membershipInfo = getMembershipInfo(member.membershipLevel);
+  const businessNameDiv = document.createElement('div');
+  businessNameDiv.classList.add('business-name-div');
+  const businessInfoDiv = document.createElement('div');
+  businessInfoDiv.classList.add('business-info');
+  card.appendChild('businessNameDiv');
+  card.appendChild('businessInfoDiv');
   
-  card.innerHTML = `
+  businessNameDiv.innerHTML =`
+  <p class="business-name">
+    ${member.name}
+  </p>
+  `
+  
+  businessInfoDiv.innerHTML = `
     <img 
       src="${member.image}" 
       alt="${member.name}" 
       loading="lazy"
-      onerror="this.src='images/placeholder.jpg'"
     >
-    <div class="business-info">
-      <h3>${member.name}</h3>
-      <p><strong>Address:</strong> ${member.address}</p>
-      <p><strong>Phone:</strong> <a href="tel:${member.phone.replace(/\s/g, '')}">${member.phone}</a></p>
-      <p><strong>Website:</strong> <a href="${member.website}" target="_blank" rel="noopener noreferrer">${getDisplayUrl(member.website)}</a></p>
-      ${member.industry ? `<p><strong>Industry:</strong> ${member.industry}</p>` : ''}
-      ${member.yearEstablished ? `<p><strong>Established:</strong> ${member.yearEstablished}</p>` : ''}
-      ${member.description ? `<p class="description">${member.description}</p>` : ''}
-      <span class="membership-badge ${membershipInfo.className}">${membershipInfo.text}</span>
+    <div>
+      <p class="phone">
+        ${member.phone}
+      </p>
+      p class="url">
+        ${member.url}
+      </p>
     </div>
-  `;
+  `
   
   return card;
-}
-
-// GET MEMBERSHIP INFO
-function getMembershipInfo(level) {
-  switch(Number(level)) {
-    case 3:
-      return { text: '🏆 Gold Member', className: 'membership-gold' };
-    case 2:
-      return { text: '🥈 Silver Member', className: 'membership-silver' };
-    case 1:
-    default:
-      return { text: '🥉 Member', className: 'membership-member' };
-  }
-}
-
-// GET DISPLAY URL
-function getDisplayUrl(url) {
-  return url.replace(/^https?:\/\/(www\.)?/, '');
 }
 
 // TOGGLE VIEW
