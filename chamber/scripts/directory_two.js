@@ -57,7 +57,17 @@ function createMemberCard(member) {
     <p class="business-name">${member.name}</p>
   `;
   
-  businessInfoDiv.innerHTML = `
+ businessInfoDiv.innerHTML = `
+
+    <div class="business-image">
+      <img 
+        src="${member.image}" 
+        alt="${member.name}" 
+        loading="lazy"
+        onerror="this.src='images/placeholder.jpg'"
+
+      >
+    </div>
     <div class="business-info">
       <p class="email">
         ${member.industry}
@@ -69,7 +79,7 @@ function createMemberCard(member) {
         ${member.website}
       </p>
     </div>
-    `
+  `
   
   return card;
 }
