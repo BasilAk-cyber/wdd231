@@ -177,19 +177,29 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction:column;
 }
 
 .business-name-div{
     border-bottom: 1px solid black;
     text-align: center;
+    height: auto;
 }
 
+.business-name, .email, .url{
+    font-family: var(--font-heading);
+}
 .business-info{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    height:auto;
 }
+
+.business-info img{
+    height: 80px;
+    width:auto;
 
 .view-grid{
     display:none;
