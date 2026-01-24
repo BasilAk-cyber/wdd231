@@ -192,13 +192,7 @@ body{
 }
 
 .view-grid{
-    
     display:none;
-    /* background-color:blue; */
-    margin-top:20px;
-    display:flex;
-    justify-content:end;
-    font-family: var(--font-heading);
 }
 
 .view-grid div{
