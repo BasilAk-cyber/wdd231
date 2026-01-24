@@ -3,7 +3,7 @@ const currentYear = document.querySelector('#currentYear');
 const lastModified = document.querySelector('#lastModified');
 const navMenu = document.querySelector('.main-nav');
 const navLinks = document.querySelectorAll('.nav-links');
-const hamburger = document.querySelectorAll('.hamburger');
+const hamburger = document.querySelector('.hamburger');
 
 
 
