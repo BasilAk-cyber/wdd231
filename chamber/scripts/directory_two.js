@@ -83,14 +83,6 @@ function createMemberCard(member) {
   return card;
 }
 
-function getMembershipLevel(level) {
-  switch(Number(level)) {
-    case 3: return '🏆 Gold Member';
-    case 2: return '🥈 Silver Member';
-    case 1: 
-    default: return '🥉 Member';
-  }
-}
 
 // TOGGLE VIEW
 function toggleView() {
