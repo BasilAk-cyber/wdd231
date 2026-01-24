@@ -68,6 +68,12 @@
         justify-content:end;
         font-family: var(--font-heading);
     }
+    .view-grid div{
+        padding:10px;
+        background-color:var(--color-accent);
+        border-radius:8px;
+        color:white;
+    }
 
     .events, .current-weather, .weather-forecast{
         border-radius:0;
