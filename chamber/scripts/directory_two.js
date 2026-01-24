@@ -64,27 +64,21 @@ function createMemberCard(member) {
         alt="${member.name}" 
         loading="lazy"
         onerror="this.src='images/placeholder.jpg'"
+
       >
     </div>
-    <div class="business-details">
-      <p class="industry">
-        <strong>Industry:</strong> ${member.industry}
+    <div class="business-info">
+      <p class="email">
+        ${member.industry}
       </p>
       <p class="phone-number">
-        <strong>Phone:</strong> <a href="tel:${member.phone.replace(/\s/g, '')}">${member.phone}</a>
+        ${member.phone}
       </p>
       <p class="url">
-        <strong>Website:</strong> <a href="${member.website}" target="_blank" rel="noopener noreferrer">${member.website.replace(/^https?:\/\/(www\.)?/, '')}</a>
+        ${member.website}
       </p>
-      <p class="address">
-        <strong>Address:</strong> ${member.address}
-      </p>
-      <p class="description">${member.description}</p>
-      <span class="membership-badge membership-level-${member.membershipLevel}">
-        ${getMembershipLevel(member.membershipLevel)}
-      </span>
     </div>
-  `;
+    `
   
   return card;
 }
