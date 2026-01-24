@@ -64,11 +64,14 @@ function createMemberCard(member) {
       loading="lazy"
     >
     <div>
+      <p>
+        ${member.industry}
+      </p>
       <p class="phone">
         ${member.phone}
       </p>
       p class="url">
-        ${member.url}
+        ${member.website}
       </p>
     </div>
   `
