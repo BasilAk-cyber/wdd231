@@ -24,12 +24,18 @@ body{
     /* background-color: var(--color-accent); */
 }
 
+span{
+    font-family: var(--font-heading);
+}
+
 .site-header {
     height: auto;
     display: flex;
     flex-direction: row;
     padding: 10px;
     justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 .site-id{
     display: flex;
@@ -202,20 +208,21 @@ body{
 }
 .business-info{
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row;
     justify-content: space-between;
     align-items: center;
     height:auto;
-    width:100%;
+    width:100%; */
+    gap: 10px;
 }
 
 .business-info div{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    height:auto;
-    width:70%;
+    align-items: flex-start;
+    /* height:auto;
+    width:70%; */
     margin-top:15px;
     gap:15px;
 }
@@ -223,10 +230,21 @@ body{
 .business-image{
     height: 90%;
     width:30%;
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
+    margin: 0 auto;
+    /* max-width: 200px; 
+    max-height: 100px;  */
 }
+
+img{
+    width: 90%;
+    height: 90%;
+    object-fit: cover;                /* ← best look: fills nicely without distortion */
+    border-radius: 6px;
+}
+
 
 .view-grid{
     display:none;
