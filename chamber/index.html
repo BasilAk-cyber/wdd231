@@ -7,7 +7,7 @@
     <meta name="description" content="Browse the Uyo Chamber of Commerce business directory. Find local businesses, connect with members, and explore opportunities in Uyo, Akwa Ibom State.">
     <title>Business Directory - Uyo Chamber of Commerce</title>
 
-    <meta property="og:title" content="Home Page - Uyo Chamber of Commerce">
+    <meta property="og:title" content="Home Page - Uyo Chamber of Commerce"> 
     <meta property="og:description" content="Discover local businesses and chamber members in Uyo, Akwa Ibom State. Connect with the business community today.">
     <meta property="og:image" content="https://yourdomain.com/images/chamber-og-image.jpg">
     <meta property="og:url" content="https://yourdomain.com/directory.html">
@@ -22,7 +22,6 @@
     <link rel="stylesheet" href="styles/largestyle.css">
 
     <script src="scripts/script.js" defer></script>
-    <script src="scripts/directory.js" defer></script>
 </head>
 <body>
     <header class="site-header">
@@ -32,9 +31,9 @@
         </div>
         <nav class="main-nav">
             <ul>
-                <li class="main-nav-div"><a href="#" class='nav-links'>Home</a></li>
-                <li class="main-nav-div"><a href="#" class='nav-links'>Directory</a></li>
-                <li class="main-nav-div"><a href="#" class='nav-links'>Join</a></li>
+                <li class="main-nav-div"><a href="index.html" class='nav-links'>Home</a></li>
+                <li class="main-nav-div"><a href="directory.html" class='nav-links'>Directory</a></li>
+                <li class="main-nav-div"><a href="join.html" class='nav-links'>Join</a></li>
                 <li class="main-nav-div"><a href="#" class='nav-links'>Discover</a></li>
             </ul>
         </nav>
@@ -57,25 +56,85 @@
         <div class="body-div">
             <section class="home">
                 <div class="events">
-                    <p>Events</p>
+                    <p class="div-heading">Events</p>
                     <div class="events-div">
                     </div>
                 </div>
                 <div class="current-weather">
-                    <p>Current Weather</p>
+                    <p class="div-heading">Current Weather</p>
                     <div class="weather-div">
+                        <div class="weather-logo">
+                        
+                        </div>
+                        <div class="weather-info">
+                            <p class="temp"></p>
+                            <p class="weather-desc"></p>
+                            <p>Highs: <span class="highs"></span></p>
+                            <p>Lows: <span class="lows"></span></p>
+                            <p>Humidity: <span class="humidity"></span></p>
+                            <p>Sunrise: <span class="sunrise"></span></p>
+                            <p>Sunset: <span class="sunset"></span></p>
+                        </div>
                     </div>
                 </div>
                 <div class="weather-forecast">
-                    <p>Weather Forecast</p>
+                    <p class="div-heading">Weather Forecast</p>
                     <div class="forecast-div">
+                        <p>Today: <span class="forecast-today">85o</span></p>
+                        <p>Tomorrow: <span class="forecast-today">85o</span></p>
+                        <p>In 2 Days: <span class="forecast-today">85o</span></p>
                     </div>
                 </div>
             </section>
-            <div class="view-grid">
+            <!-- <div class="view-grid">
                     <div> Display Single</div>
-            </div>
-            <section class="business-card-section" >             
+            </div> -->
+            <section class="business-card-section" > 
+                <div class="business-card">
+                    <div class="business-name-div">
+                        <p class="business-name">Dango International</p>
+                    </div>
+                    <div class="business-info">
+                        <div class="business-image">
+                            <img src="images/akwatech.png" alt="">
+                        </div>
+                       <div class="business-info-div">
+                           <p>Email: <span class="email">info@dango.com</span></p>
+                           <p>Phone: <span class="phone-number">+234 899 6733 456</span></p>
+                           <p>URL: <span class="url">www.dango.com</span></p>
+                       </div>
+                    </div>
+                </div>            
+                <div class="business-card">
+                    <div class="business-name-div">
+                        <p class="business-name">Dango International</p>
+                    </div>
+                    <div class="business-info">
+                        <div class="business-image">
+                            <img src="images/akwatech.png" alt="">
+                        </div>
+                       <div class="business-info-div">
+                           <p>Email: <span class="email">info@dango.com</span></p>
+                           <p>Phone: <span class="phone-number">+234 899 6733 456</span></p>
+                           <p>URL: <span class="url">www.dango.com</span></p>
+                       </div>
+                    </div>
+                </div>            
+                <div class="business-card">
+                    <div class="business-name-div">
+                        <p class="business-name">Dango International</p>
+                    </div>
+                    <div class="business-info">
+                        <div class="business-image">
+                            <img src="images/akwatech.png" alt="">
+                        </div>
+                       <div class="business-info-div">
+                           <p>Email: <span class="email">info@dango.com</span></p>
+                           <p>Phone: <span class="phone-number">+234 899 6733 456</span></p>
+                           <p>URL: <span class="url">www.dango.com</span></p>
+                       </div>
+                    </div>
+                </div>            
 
             </section>
         </div>

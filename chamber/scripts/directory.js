@@ -1,11 +1,12 @@
-const directoryDisplay = document.querySelector('.business-card-section');
+const businessCardDiv = document.querySelector('.business-card-section');
 const viewGridBtn = document.querySelector('.view-grid');
+
 
 let members = [];
 
 async function fetchMembers() {
   try {
-    directoryDisplay.innerHTML = '<p class="loading">Loading members...</p>';
+    businessCardDiv.innerHTML = '<p class="loading">Loading members...</p>';
     
     const response = await fetch('data/members.json');
     
@@ -30,79 +31,58 @@ async function fetchMembers() {
 }
 
 function displayMembers(memberList) {
-  if (!directoryDisplay) return;
+  if (!businessCardDiv) return;
   
-  directoryDisplay.innerHTML = '';
+  businessCardDiv.innerHTML = '';
   
   memberList.forEach(member => {
     const card = createMemberCard(member);
-    directoryDisplay.appendChild(card);
+    businessCardDiv.appendChild(card);
   });
 }
 
 function createMemberCard(member) {
+
   const card = document.createElement('div');
   card.classList.add('business-card');
-  
-  const businessNameDiv = document.createElement('div');
-  businessNameDiv.classList.add('business-name-div');
-  const businessInfoDiv = document.createElement('div');
-  businessInfoDiv.classList.add('business-info');
-  card.appendChild(businessNameDiv);
-  card.appendChild(businessInfoDiv);
-  
-  businessNameDiv.innerHTML =`
-  <p class="business-name">
-    ${member.name}
-  </p>
-  `
-  
-  businessInfoDiv.innerHTML = `
 
-    <div class="business-image">
-      <img 
-        src="${member.image}" 
-        alt="${member.name}" 
-        loading="lazy"
-        onerror="this.src='images/placeholder.jpg'"
-
-      >
-    </div>
-    <div class="business-info">
-      <p class="email">
-        ${member.industry}
-      </p>
-      <p class="phone-number">
-        ${member.phone}
-      </p>
-      <p class="url">
-        ${member.website}
-      </p>
-    </div>
-  `
-  
+  card.innerHTML = `
+      <div class="business-name-div">
+          <p class="business-name">${member.name}</p>
+      </div>
+      <div class="business-info">
+          <div class="business-image">
+              <img src="${member.image}" alt="">
+          </div>
+          <div class="business-info-div">
+              <p>Email: <span class="email">${member.email}</span></p>
+              <p>Phone: <span class="phone-number">${member.phone}</span></p>
+              <p>URL: <span class="url">${member.website}</span></p>
+          </div>
+      </div>
+`
   return card;
 }
 
-// TOGGLE VIEW
+
 function toggleView() {
-  if (!directoryDisplay) return;
+  if (!businessCardDiv) return;
   
-  if (directoryDisplay.classList.contains('grid-display')) {
-    directoryDisplay.classList.remove('grid-display');
-    directoryDisplay.classList.add('list-display');
+  if (businessCardDiv.classList.contains('business-card-section')) {
+    businessCardDiv.classList.remove('business-card-section');
+    businessCardDiv.classList.add('business-card-section-list');
     if (viewGridBtn) viewGridBtn.textContent = 'Display Grid';
-    localStorage.setItem('directoryView', 'list');
+    //localStorage.setItem('directoryView', 'list');
   } else {
-    directoryDisplay.classList.remove('list-display');
-    directoryDisplay.classList.add('grid-display');
+    businessCardDiv.classList.remove('business-card-section-list');
+    businessCardDiv.classList.add('business-card-section');
     if (viewGridBtn) viewGridBtn.textContent = 'Display List';
-    localStorage.setItem('directoryView', 'grid');
+    //localStorage.setItem('directoryView', 'grid');
   }
 }
 
 // LOAD VIEW PREFERENCE
-function loadViewPreference() {
+/* function loadViewPreference() {
   const savedView = localStorage.getItem('directoryView');
   
   if (savedView === 'list' && directoryDisplay) {
@@ -113,9 +93,8 @@ function loadViewPreference() {
     directoryDisplay.classList.add('grid-display');
     if (viewGridBtn) viewGridBtn.textContent = 'Display List';
   }
-}
+} */
 
-// EVENT LISTENER
 if (viewGridBtn) {
   viewGridBtn.addEventListener('click', toggleView);
 }

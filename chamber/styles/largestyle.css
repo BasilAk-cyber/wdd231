@@ -80,7 +80,7 @@
         border-radius:0;
     }
 
-    .events p, .current-weather p, .weather-forecast p{
+    .div-heading{
         border-radius:0;
     }
 
@@ -97,8 +97,7 @@
         align-items:center;
         gap:30px;
     }
-
-    .business-card-section.active{
+    .business-card-section-list{
         display:grid;
         grid-template-columns:400px;
         flex-direction:column;

@@ -112,6 +112,7 @@ span{
     color:white;
     width: 130px;
     text-align:center;
+    font-family: var(--font-heading);
 }
 
 .home{
@@ -144,7 +145,7 @@ span{
     padding:0 10px;
 }
 
-.events p, .current-weather p, .weather-forecast p{
+.div-heading{
     display:block;
     background-color:var(--color-accent);
     font-size:28px;
@@ -156,14 +157,14 @@ span{
 
 .events, .current-weather, .weather-forecast{
     width:100%;
-    height:auto;
+    height:230px;
     background-color:var(--color-border);
     margin-top:20px;
     border-radius:4px;
 }
 
 .forecast-div, .weather-div, .events-div{
-    padding:20px;
+    background-color:var(--color-border);
 }
 
 .business-card-section{
@@ -171,6 +172,7 @@ span{
     flex-direction:column;
     justify-content:center;
     align-items:center;
+    margin-top:20px;
 }
 
 .business-card{
@@ -195,7 +197,12 @@ span{
     align-items: center;
 }
 
-.email, .url{
+.business-info-div p {
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+.email, .url, .phone-number{
     font-family: var(--font-heading);
 }
 
@@ -214,6 +221,37 @@ span{
     height:auto;
     width:100%; */
     gap: 10px;
+}
+
+.weather-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top:15px;
+    gap:15px;
+    padding:10px;
+    background-color:var(--color-border);
+    font-family: var(--font-heading);
+}
+
+.forecast-div{
+    background-color:var(--color-border);
+    padding:20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap:10px;
+    font-family: var(--font-heading);
+}
+
+.weather-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap:4px;
 }
 
 .business-info div{
