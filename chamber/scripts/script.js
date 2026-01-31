@@ -6,25 +6,22 @@ const navLinks = document.querySelectorAll('.nav-links');
 const hamburger = document.querySelector('.hamburger');
 const directoryDisplay = document.querySelector('.business-card-section');
 const viewGridBtn = document.querySelector('.view-grid');
-const weatherSymbol = document.querySelector(".weather-logo");
+const weatherSymbol = document.querySelector(".weather-logo-image");
 const temparature = document.querySelector(".temp");
-const Date = document.querySelector(".date");
+const date = document.querySelector(".date");
 const Highs = document.querySelector(".highs");
 const description = document.querySelector(".weather-desc")
 const lows = document.querySelector(".lows");
 const humidity = document.querySelector(".humidity");
 const sunrise = document.querySelector(".sunrise");
 const sunset = document.querySelector(".sunset");
+const highlight = document.querySelector(".highlight");
 
 const API_KEY = window.CONFIG?.API_KEY || '8480cb04b62842d8b41f0af968d69401';
 
-
 async function getWeatherInfo() {
     try {
-        // You need to provide actual latitude and longitude values
-        /* const lat = 'YOUR_LATITUDE';
-        const lon = 'c-94.04'; */
-        
+
         const response = await fetch(
             `https://api.openweathermap.org/data/2.5/weather?lat=33.44&lon=-94.04&appid=${API_KEY}`
         );
@@ -35,29 +32,33 @@ async function getWeatherInfo() {
 
         const data = await response.json();
 
-        console.log(data);
-
         // Update based on OpenWeather API structure
         temparature.textContent = `${Math.round(data.main.temp)}°C`;
         humidity.textContent = `${data.main.humidity}%`;
         description.textContent = data.weather[0].description ;
         
         // For highs and lows (from daily forecast)
-        highs.textContent = `${Math.round(data.main.temp_max)}°C`;
+        Highs.textContent = `${Math.round(data.main.temp_max)}°C`;
         lows.textContent = `${Math.round(data.main.temp_min)}°C`;
 
 
         const sunriseTime = new Date(data.sys.sunrise * 1000);
         const sunsetTime = new Date(data.sys.sunset * 1000);
+
+        const sunriseFormatted = sunriseTime.toLocaleTimeString('en-US', { 
+            hour: 'numeric', 
+            minute: '2-digit',
+            hour12: true
+        });
         
-        sunrise.textContent = sunriseTime.toLocaleTimeString('en-US', { 
-            hour: '2-digit', 
-            minute: '2-digit' 
+        const sunsetFormatted = sunsetTime.toLocaleTimeString('en-US', { 
+            hour: 'numeric', 
+            minute: '2-digit',
+            hour12: true
         });
-        sunset.textContent = sunsetTime.toLocaleTimeString('en-US', { 
-            hour: '2-digit', 
-            minute: '2-digit' 
-        });
+        
+        sunrise.textContent = sunriseFormatted;
+        sunset.textContent = sunsetFormatted;
 
         dateElement.textContent = new Date().toLocaleDateString('en-US', {
             weekday: 'long',
@@ -66,7 +67,7 @@ async function getWeatherInfo() {
             day: 'numeric'
         });
         
-        const iconCode = data.current.weather[0].icon;
+        const iconCode = data.weather[0].icon;
         weatherSymbol.src = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
 
     } catch (error) {
@@ -75,6 +76,71 @@ async function getWeatherInfo() {
 }
 
 getWeatherInfo();
+
+async function fetchHighlight() {
+  try {
+    highlight.innerHTML = '<p class="loading">Loading members...</p>';
+    
+    const response = await fetch('data/members.json');
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    members = data.members;
+
+    const highlightMembers = members.filter((m) => {
+        m.membershipLevel === 3;
+    })
+    
+    displayMembers(highlightMembers);
+    
+  } catch (error) {
+    console.error('Error fetching members:', error);
+    highlight.innerHTML = `
+      <div class="error-message">
+        <p>Sorry, we couldn't load the member directory.</p>
+        <p>Error: ${error.message}</p>
+      </div>
+    `;
+  }
+}
+
+function displayMembers(memberList) {
+  if (!highlight) return;
+  
+  highlight.innerHTML = '';
+  
+  memberList.forEach(member => {
+    const card = createMemberCard(member);
+    highlight.appendChild(card);
+  });
+}
+
+function createMemberCard(member) {
+
+  const card = document.createElement('div');
+  card.classList.add('business-card');
+
+  card.innerHTML = `
+      <div class="business-name-div">
+          <p class="business-name">${member.name}</p>
+      </div>
+      <div class="business-info">
+          <div class="business-image">
+              <img src="${member.image}" alt="">
+          </div>
+          <div class="business-info-div">
+              <p>Email: <span class="email">${member.email}</span></p>
+              <p>Phone: <span class="phone-number">${member.phone}</span></p>
+              <p>URL: <span class="url">${member.website}</span></p>
+          </div>
+      </div>
+`
+  return card;
+}
+
 
 
 hamburger.addEventListener("click", () => {
@@ -92,3 +158,5 @@ navLinks.forEach(element => {
     })
 });
 lastModified.textContent = "Last modified: " + document.lastModified;
+
+fetchHighlight();
