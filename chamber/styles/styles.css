@@ -174,7 +174,7 @@ span{
     background-color:var(--color-border);
 }
 
-.business-card-section{
+.business-card-section, .highlight{
     display:flex;
     flex-direction:column;
     justify-content:center;

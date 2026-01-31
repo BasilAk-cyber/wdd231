@@ -90,11 +90,9 @@ async function fetchHighlight() {
     const data = await response.json();
     members = data.members;
 
-    const highlightMembers = members.filter((m) => {
-        m.membershipLevel === 3;
-    })
+    const highlightMembers = members.filter((m) => m.membershipLevel === 3);
     
-    displayMembers(highlightMembers);
+    displayHighlightMembers(highlightMembers);
     
   } catch (error) {
     console.error('Error fetching members:', error);
@@ -107,18 +105,18 @@ async function fetchHighlight() {
   }
 }
 
-function displayMembers(memberList) {
+function displayHighlightMembers(memberList) {
   if (!highlight) return;
   
   highlight.innerHTML = '';
   
   memberList.forEach(member => {
-    const card = createMemberCard(member);
+    const card = createHighlightMemberCard(member);
     highlight.appendChild(card);
   });
 }
 
-function createMemberCard(member) {
+function createHighlightMemberCard(member) {
 
   const card = document.createElement('div');
   card.classList.add('business-card');
