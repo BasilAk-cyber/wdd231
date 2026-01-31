@@ -103,6 +103,7 @@ span{
 
 .hero{
     height:400px;
+    position: relative;
 }
 
 .hero-image{
@@ -120,6 +121,9 @@ span{
     width: 130px;
     text-align:center;
     font-family: var(--font-heading);
+    position: absolute;
+    left: 250px;
+    bottom: 100px;
 }
 
 .home{

@@ -59,6 +59,7 @@
 
     .hero{
         height:400px;
+        position: relative;
     }
     .home{
         display:grid;
@@ -91,6 +92,12 @@
     .body-div{
         margin:40px;
         margin-top:0px;
+    }
+
+    .cta-btn{
+        position: absolute;
+        left: 1100px;
+        bottom: 50px;
     }
 
     .business-card-section, .highlight{
