@@ -105,6 +105,8 @@ async function fetchHighlight() {
   }
 }
 
+fetchHighlight();
+
 function displayHighlightMembers(memberList) {
   if (!highlight) return;
   
@@ -157,4 +159,4 @@ navLinks.forEach(element => {
 });
 lastModified.textContent = "Last modified: " + document.lastModified;
 
-fetchHighlight();
+
