@@ -53,6 +53,15 @@
         color: white;
     }
 
+    .join-page-body{
+        width:90%;
+        margin: 0 auto;
+        display:grid;
+        grid-template-columns:60% 40%;
+        align-items:center;
+        justify-content:center;
+    }
+
     .hamburger{
         display: none;
     }

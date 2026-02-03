@@ -53,150 +53,130 @@
         </div>
         <div class="join-page-body">
             <div class="join-form">
-            <h1>Membership Application</h1>
-            <form id="membershipForm" method="get" action="thankyou.html">
+                <p>Membership Application</p>
+                <form id="membershipForm" method="get" action="thankyou.html">
 
-                <div class="form-group">
-                    <label for="firstName">First Name <span aria-hidden="true">*</span></label>
-                    <input 
-                        type="text" 
-                        id="firstName" 
-                        name="firstName" 
-                        title="Applicant's first name" 
-                        autocomplete="given-name" 
-                        required
-                    >
-                </div>
-
-                <div class="form-group">
-                    <label for="lastName">Last Name <span aria-hidden="true">*</span></label>
-                    <input 
-                        type="text" 
-                        id="lastName" 
-                        name="lastName" 
-                        title="Applicant's last name" 
-                        autocomplete="family-name" 
-                        required
-                    >
-                </div>
-
-                <div class="form-group">
-                    <label for="jobTitle">Organizational Title / Position</label>
-                    <input 
-                        type="text" 
-                        id="jobTitle" 
-                        name="jobTitle" 
-                        title="Your title/position within your organization" 
-                        autocomplete="organization-title"
-                        pattern="[A-Za-z\s\-]{7,}" 
-                        title="Minimum 7 characters. Letters, spaces, and hyphens only"
-                    >
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email Address <span aria-hidden="true">*</span></label>
-                    <input 
-                        type="email" 
-                        id="email" 
-                        name="email" 
-                        title="Business email address" 
-                        autocomplete="email" 
-                        placeholder="name@organization.org" 
-                        required
-                    >
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">Mobile Phone Number <span aria-hidden="true">*</span></label>
-                    <input 
-                        type="tel" 
-                        id="phone" 
-                        name="phone" 
-                        title="Mobile phone number" 
-                        autocomplete="tel" 
-                        required
-                    >
-                </div>
-
-                <div class="form-group">
-                    <label for="organization">Business / Organization Name <span aria-hidden="true">*</span></label>
-                    <input 
-                        type="text" 
-                        id="organization" 
-                        name="organization" 
-                        title="Name of your business or organization" 
-                        autocomplete="organization" 
-                        required
-                    >
-                </div>
-
-                <div class="form-group">
-                    <label for="membershipLevel">Membership Level <span aria-hidden="true">*</span></label>
-                    <select id="membershipLevel" name="membershipLevel" required>
-                        <option value="" disabled selected>Select a level</option>
-                        <option value="np">NP Membership (Non-Profit – Free)</option>
-                        <option value="bronze">Bronze Membership</option>
-                        <option value="silver">Silver Membership</option>
-                        <option value="gold">Gold Membership</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="description">Business / Organization Description</label>
-                    <textarea 
-                        id="description" 
-                        name="description" 
-                        title="Brief description of your organization"
-                    ></textarea>
-                </div>
-
-                <!-- Hidden timestamp -->
-                <input 
-                type="hidden" 
-                name="timestamp" 
-                id="timestamp"
-                >
-
-                <button type="submit" class="btn">Submit Application</button>
-            </form>
-        </div>
-        <div class="membership-cards">
-            <div class="card">
-                <div class="card-header">NP Membership</div>
-                    <div class="card-body">
-                        <p>Free membership for registered non-profit organizations</p>
-                        <p><a href="#" data-modal="modal-np">View benefits →</a></p>
+                    <div class="form-group">
+                        <label for="firstName">First Name <span aria-hidden="true">*</span></label>
+                        <input 
+                            type="text" 
+                            id="firstName" 
+                            name="firstName" 
+                            title="Applicant's first name" 
+                            autocomplete="given-name" 
+                            required
+                        >
                     </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Last Name <span aria-hidden="true">*</span></label>
+                        <input 
+                            type="text" 
+                            id="lastName" 
+                            name="lastName" 
+                            title="Applicant's last name" 
+                            autocomplete="family-name" 
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jobTitle">Organizational Title / Position</label>
+                        <input 
+                            type="text" 
+                            id="jobTitle" 
+                            name="jobTitle" 
+                            title="Your title/position within your organization" 
+                            autocomplete="organization-title"
+                            pattern="[A-Za-z\s\-]{7,}" 
+                            title="Minimum 7 characters. Letters, spaces, and hyphens only"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address <span aria-hidden="true">*</span></label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            title="Business email address" 
+                            autocomplete="email" 
+                            placeholder="name@organization.org" 
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Mobile Phone Number <span aria-hidden="true">*</span></label>
+                        <input 
+                            type="tel" 
+                            id="phone" 
+                            name="phone" 
+                            title="Mobile phone number" 
+                            autocomplete="tel" 
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="organization">Business / Organization Name <span aria-hidden="true">*</span></label>
+                        <input 
+                            type="text" 
+                            id="organization" 
+                            name="organization" 
+                            title="Name of your business or organization" 
+                            autocomplete="organization" 
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="membershipLevel">Membership Level <span aria-hidden="true">*</span></label>
+                        <select id="membershipLevel" name="membershipLevel" required>
+                            <option value="" disabled selected>Select a level</option>
+                            <option value="np">NP Membership (Non-Profit – Free)</option>
+                            <option value="bronze">Bronze Membership</option>
+                            <option value="silver">Silver Membership</option>
+                            <option value="gold">Gold Membership</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Business / Organization Description</label>
+                        <textarea 
+                            id="description" 
+                            name="description" 
+                            title="Brief description of your organization"
+                        ></textarea>
+                    </div>
+
+                    <!-- Hidden timestamp -->
+                    <input 
+                    type="hidden" 
+                    name="timestamp" 
+                    id="timestamp"
+                    >
+
+                    <button type="submit" class="btn">Submit Application</button>
+                </form>
+            </div>
+            <div class='membership-card'>
+                <div class="card">
+                    <p class="card-header">Bronze</p>
+                    <p>Entry-level professional membership</p>
+                    <p><a href="#" data-modal="modal-bronze">View benefits →</a></p>
+                </div>
+                <div class="card">
+                    <p class="card-header">Silver</p>
+                    <p>Enhanced visibility and benefits</p>
+                    <p><a href="#" data-modal="modal-bronze">View benefits →</a></p>
+                </div>
+                <div class="card">
+                    <p class="card-header">Gold</p>
+                    <p>Premium membership with maximum exposure</p>
+                    <p><a href="#" data-modal="modal-bronze">View benefits →</a></p>
                 </div>
             </div>
-
-            <div class="card">
-                <div class="card-header">Bronze</div>
-                    <div class="card-body">
-                        <p>Entry-level professional membership</p>
-                        <p><a href="#" data-modal="modal-bronze">View benefits →</a></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">Silver</div>
-                    <div class="card-body">
-                        <p>Enhanced visibility and benefits</p>
-                        <p><a href="#" data-modal="modal-silver">View benefits →</a></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">Gold</div>
-                    <div class="card-body">
-                        <p>Premium membership with maximum exposure</p>
-                        <p><a href="#" data-modal="modal-gold">View benefits →</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
         </div>
         
     </main>
