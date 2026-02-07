@@ -238,8 +238,6 @@
                 </ul>
             </div>
         </div>
-
-        
     </main>
     <footer>
         <div class="address">
@@ -263,5 +261,17 @@
             <p id="lastModified"></p>
         </div>
     </footer>
+
+    <script>
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.card').forEach((card) => {
+
+                console.log(card);
+                setTimeout(() => {
+                card.classList.add('visible');
+                }, 150);
+            });
+        });
+    </script>
 </body>
 </html>

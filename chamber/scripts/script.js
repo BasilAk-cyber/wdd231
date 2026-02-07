@@ -174,6 +174,8 @@ navLinks.forEach(element => {
 // Simple version – or use IntersectionObserver
 window.addEventListener('load', () => {
   document.querySelectorAll('.card').forEach((card) => {
+
+    console.log(card);
     setTimeout(() => {
       card.classList.add('visible');
     }, 150);

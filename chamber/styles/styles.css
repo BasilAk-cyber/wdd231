@@ -388,7 +388,7 @@ img{
 
 .card{
     height: 150px;
-    width: 90%;
+    width: 80%;
     background-color:var(--color-accent);
     color:white;
     display:flex;
@@ -400,14 +400,22 @@ img{
     flex-direction:column;
     font-family: var(--font-heading);
     font-weight:700;
-    animation: float 7s ease-in ;
-    animation-delay: calc(var(--order) * 1s);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+    /* animation: float 7s ease-in ;
+    animation-delay: calc(var(--order) * 1s); */
 }
 
-@keyframes float {
+.card.visible{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* @keyframes float {
   0%, 100% { transform: translateY(0); }
   50%      { transform: translateY(-20px); }
-}
+} */
 .modal{
     display: none;
     position: fixed;
