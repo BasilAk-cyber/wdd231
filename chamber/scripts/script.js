@@ -141,7 +141,20 @@ function createHighlightMemberCard(member) {
   return card;
 }
 
+function openModal(modalId) {
+    document.getElementById(modalId).style.display = "block";
+}
 
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = "none";
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+        event.target.style.display = "none";
+    }
+}
 
 hamburger.addEventListener("click", () => {
     navMenu.classList.toggle("active");
@@ -156,6 +169,15 @@ navLinks.forEach(element => {
     element.addEventListener("click", () => {
         navMenu.classList.remove("active");
     })
+});
+
+// Simple version – or use IntersectionObserver
+window.addEventListener('load', () => {
+  document.querySelectorAll('.card').forEach((card) => {
+    setTimeout(() => {
+      card.classList.add('visible');
+    }, 150);
+  });
 });
 lastModified.textContent = "Last modified: " + document.lastModified;
 

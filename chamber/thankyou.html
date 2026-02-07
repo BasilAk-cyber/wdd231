@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thank You - Submission Received</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --color-primary:   #006A4E;
+      --color-secondary: #FFB81C;
+      --color-background:#F8F9FA;
+      --color-accent:    #002147;
+      --color-text:      #212529;
+      --color-border:    #dee2e6;
+
+      --font-heading: "Montserrat", system-ui, sans-serif;
+      --font-body:    "Open Sans", system-ui, sans-serif;
+      --line-height-body: 1.6;
+      --line-height-heading: 1.2;
+    }
+
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-background);
+      color: var(--color-text);
+      line-height: var(--line-height-body);
+      min-height: 100vh;
+    }
+
+    span, h1, h2, h3, .section-name, label, .btn {
+      font-family: var(--font-heading);
+    }
+
+    .container {
+      width: 90%;
+      max-width: 720px;
+      margin: 40px auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    h1 {
+      color: var(--color-accent);
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+      color: #444;
+    }
+
+    .confirmation-card {
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 28px 24px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      margin-bottom: 40px;
+    }
+
+    .card-title {
+      font-size: 1.65rem;
+      color: var(--color-accent);
+      font-weight: 700;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--color-primary);
+    }
+
+    .info-grid {
+      display: grid;
+      gap: 18px 24px;
+    }
+
+    .info-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 16px;
+      align-items: baseline;
+    }
+
+    .info-label {
+      font-weight: 600;
+      color: var(--color-primary);
+      font-size: 1.05rem;
+    }
+
+    .info-value {
+      color: var(--color-text);
+      word-break: break-word;
+    }
+
+    .next-steps {
+      background: rgba(0,106,78,0.06); /* light primary tint */
+      border-left: 5px solid var(--color-primary);
+      border-radius: 6px;
+      padding: 24px;
+      margin: 40px 0;
+    }
+
+    .next-steps h3 {
+      color: var(--color-accent);
+      margin-bottom: 16px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: var(--color-accent);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      margin: 20px auto;
+      display: block;
+      width: 240px;
+    }
+
+    .btn:hover {
+      background-color: #001530;
+    }
+
+    .timestamp {
+      text-align: center;
+      color: #666;
+      font-size: 0.95rem;
+      margin: 30px 0 50px;
+    }
+
+    footer {
+      background-color: var(--color-border);
+      padding: 24px 20px;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #444;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 520px) {
+      .info-row {
+        grid-template-columns: 1fr;
+        gap: 6px 12px;
+      }
+      .info-label {
+        font-size: 1.05rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <header>
+      <h1>Thank You!</h1>
+      <p class="subtitle">Your form has been successfully submitted.</p>
+    </header>
+
+    <div class="confirmation-card">
+      <h2 class="card-title">Your Submitted Details</h2>
+
+      <div class="info-grid">
+        <div class="info-row">
+          <div class="info-label">First Name:</div>
+          <div class="info-value" id="firstName">—</div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-label">Last Name:</div>
+          <div class="info-value" id="lastName">—</div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-label">Email:</div>
+          <div class="info-value" id="email">—</div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-label">Mobile Number:</div>
+          <div class="info-value" id="mobile">—</div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-label">Business Name:</div>
+          <div class="info-value" id="businessName">—</div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-label">Submitted:</div>
+          <div class="info-value" id="submissionDate">—</div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-label">Position / Title:</div>
+          <div class="info-value" id="jobTitle">—</div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-label">Membership Level:</div>
+            <div class="info-value" id="membershipLevel">—</div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-label">Description:</div>
+            <div class="info-value" id="description">—</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="next-steps">
+      <h3>What's next?</h3>
+      <p>We have received your information and will contact you soon.<br>
+         A confirmation email has been sent to the address you provided.</p>
+    </div>
+
+    <a href="index.html" class="btn">Return to Home</a>
+
+    <div class="timestamp">
+      Page loaded: <span id="pageLoadTime"></span>
+    </div>
+
+  </div>
+
+  <footer>
+    © 2026 Your Business Name • All rights reserved
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const params = new URLSearchParams(window.location.search);
+
+        // Map URL parameters → display IDs
+        const fields = {
+            firstName:      params.get('firstName')     || '—',
+            lastName:       params.get('lastName')      || '—',
+            email:          params.get('email')         || '—',
+            mobile:         params.get('mobile')        || '—',
+            businessName:   params.get('businessName')  || '—',
+            
+            // New fields
+            jobTitle:       params.get('jobTitle')      || '—',
+            membershipLevel:params.get('membershipLevel') || '—',
+            description:    params.get('description')   || '—',
+            
+            // Timestamp (prefer form-submitted one, fallback to now)
+            submissionDate: params.get('submissionDate') || new Date().toLocaleString('en-GB', {
+                dateStyle: 'medium',
+                timeStyle: 'short'
+            })
+        };
+
+        // Fill all fields that exist on the page
+        Object.entries(fields).forEach(([key, value]) => {
+            const el = document.getElementById(key);
+            if (el) {
+                // For description we might want <br> → new lines preserved
+                if (key === 'description') {
+                    el.innerHTML = decodeURIComponent(value).replace(/\n/g, '<br>');
+                } else {
+                    el.textContent = decodeURIComponent(value);
+                }
+            }
+        });
+
+        // Page load time (separate)
+        document.getElementById('pageLoadTime').textContent = new Date().toLocaleString('en-GB', {
+            dateStyle: 'medium',
+            timeStyle: 'short'
+        });
+    });
+  </script>
+
+</body>
+</html>

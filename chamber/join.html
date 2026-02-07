@@ -88,8 +88,6 @@
                             name="jobTitle" 
                             title="Your title/position within your organization" 
                             autocomplete="organization-title"
-                            pattern="[A-Za-z\s\-]{7,}" 
-                            title="Minimum 7 characters. Letters, spaces, and hyphens only"
                         >
                     </div>
 
@@ -162,22 +160,85 @@
             </div>
             <div class='membership-card'>
                 <div class="card">
-                    <p class="card-header">Bronze</p>
-                    <p>Entry-level professional membership</p>
-                    <p><a href="#" data-modal="modal-bronze">View benefits →</a></p>
+                    <p class="card-header">Basic</p>
+                    <p class="card-benefits">Entry-level professional membership</p>
+                    <p class="modal-btn"><a href="#"  onclick="openModal('basicModal')">View benefits →</a></p>
                 </div>
                 <div class="card">
                     <p class="card-header">Silver</p>
-                    <p>Enhanced visibility and benefits</p>
-                    <p><a href="#" data-modal="modal-bronze">View benefits →</a></p>
+                    <p class="card-benefits">Enhanced visibility and benefits</p>
+                    <p class="modal-btn"><a href="#"  onclick="openModal('silverModal')">View benefits →</a></p>
                 </div>
                 <div class="card">
                     <p class="card-header">Gold</p>
-                    <p>Premium membership with maximum exposure</p>
-                    <p><a href="#" data-modal="modal-bronze">View benefits →</a></p>
+                    <p class="card-benefits">Premium membership with max exposure</p>
+                    <p class="modal-btn"><a href="#"  onclick="openModal('goldModal')">View benefits →</a></p>
+                </div>
+                <div class="card">
+                    <p class="card-header">Platinum</p>
+                    <p class="card-benefits">Top-tier benefits with exclusive perks</p>
+                    <p class="modal-btn"><a href="#"  onclick="openModal('platinumModal')">View benefits →</a></p>
                 </div>
             </div>
         </div>
+        <div id="basicModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('basicModal')">&times;</span>
+                <h2 class="modal-heading">Basic Membership Benefits</h2>
+                <ul class="modal-benefits">
+                    <li>Access to basic events</li>
+                    <li>Newsletter subscription</li>
+                    <li>10% discount on select events</li>
+                    <li>Cost: $50/year</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="silverModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('silverModal')">&times;</span>
+                <h2 class="modal-heading">Silver Membership Benefits</h2>
+                <ul class="modal-benefits">
+                    <li>All Basic benefits</li>
+                    <li>Access to special training sessions</li>
+                    <li>20% discount on events</li>
+                    <li>Basic advertising opportunities</li>
+                    <li>Cost: $100/year</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="goldModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('goldModal')">&times;</span>
+                <h2 class="modal-heading">Gold Membership Benefits</h2>
+                <ul class="modal-benefits">
+                    <li>All Silver benefits</li>
+                    <li>Priority access to exclusive events</li>
+                    <li>30% discount on events</li>
+                    <li>Spotlight advertising on home page</li>
+                    <li>Personalized training consultations</li>
+                    <li>Cost: $200/year</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="platinumModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('platinumModal')">&times;</span>
+                <h2 class="modal-heading">Platinum Membership Benefits</h2>
+                <ul class="modal-benefits">
+                    <li>All Gold benefits</li>
+                    <li>VIP invitations to premium events</li>
+                    <li>50% discount on all events</li>
+                    <li>Prime spotlight positions on home page</li>
+                    <li>Advanced training programs</li>
+                    <li>Dedicated support</li>
+                    <li>Cost: $500/year</li>
+                </ul>
+            </div>
+        </div>
+
         
     </main>
     <footer>
