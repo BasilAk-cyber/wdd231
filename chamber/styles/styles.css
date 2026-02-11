@@ -224,6 +224,7 @@ span{
     padding:10px;
     height:100%;
 }
+
 .business-info{
     display: flex;
     /* flex-direction: row;
@@ -477,6 +478,80 @@ img{
     cursor: pointer;
 }
 
+.discovery-section{
+    display:grid;
+    grid-template-columns: 1fr;
+    justify-content:center;
+    align-items:center;
+    gap:30px;
+    margin:20px auto;
+}
+
+.attraction-figure{
+    height: auto;
+    border-radius: 8px;
+    box-shadow:0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width:90%;
+    margin:0 auto;
+    display:grid;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "name"
+    "photograph"
+    "address"
+    "description"
+    "button";
+
+}
+
+.attraction-image{
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    width: 400px;
+    height: 300px;
+    grid-area:photograph;
+}
+
+.figure-head{
+    font-family: var(--font-heading);
+    /* font-weight:700; */
+    text-align:center;
+    padding:10px;
+    grid-area:name;
+    width:100%;
+    margin:0 auto;
+}
+
+.place-address{
+    grid-area:address;
+    padding: 0 10px;
+}
+
+.place-description{
+    grid-area:description;
+    font-family: var(--font-heading);
+    padding: 0 10px;
+}
+
+.attraction-figure button{
+    grid-area:button;
+    padding: 0 10px;
+    height:30px;
+    width:90%;
+    align-self:center;
+    border-radius:8px;
+    border:none;
+    background-color:black;
+    color:white;
+    font-family: var(--font-heading);
+    margin: 0 auto;
+}
 footer{
     background-color:var(--color-border);
     padding: 20px;
@@ -488,73 +563,3 @@ footer{
     font-family: var(--font-heading);
 }
 
-/* .thanks-header {
-    text-align: center;
-    margin: 60px 0 50px;
-}
-
-.thanks-header h1 {
-    color: var(--color-accent);
-    font-size: 2.8rem;
-    font-weight: 700;
-    margin-bottom: 12px;
-}
-
-.subtitle {
-    font-size: 1.25rem;
-    color: #444;
-}
-
-.confirmation-card .card-title {
-    font-size: 1.65rem;
-    color: var(--color-accent);
-    font-weight: 700;
-    margin-bottom: 24px;
-    padding-bottom: 12px;
-    border-bottom: 2px solid var(--color-primary);
-}
-
-.info-grid {
-    display: grid;
-    gap: 18px 24px;
-}
-
-.info-row {
-    display: grid;
-    grid-template-columns: 160px 1fr;
-    gap: 16px;
-    align-items: baseline;
-}
-
-.info-label {
-    font-weight: 600;
-    color: var(--color-primary);
-    font-size: 1.05rem;
-}
-
-.info-value {
-    color: var(--color-text);
-    word-break: break-word;
-}
-
-.next-steps {
-    background: rgba(0,106,78,0.06);
-    border-left: 5px solid var(--color-primary);
-    border-radius: 6px;
-    padding: 24px;
-    margin: 40px 0;
-}
-
-.next-steps h3 {
-    color: var(--color-accent);
-    margin-bottom: 16px;
-}
-
-.timestamp {
-    text-align: center;
-    color: #666;
-    font-size: 0.95rem;
-    margin: 30px 0 50px;
-}
-
- */

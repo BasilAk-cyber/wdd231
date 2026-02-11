@@ -1,3 +1,7 @@
+import { places } from "../data/attraction.mjs";
+
+console.log(places);
+
 
 const currentYear = document.querySelector('#currentYear');
 const lastModified = document.querySelector('#lastModified');
@@ -16,6 +20,7 @@ const humidity = document.querySelector(".humidity");
 const sunrise = document.querySelector(".sunrise");
 const sunset = document.querySelector(".sunset");
 const highlight = document.querySelector(".highlight");
+const attractionSection = document.querySelector(".discovery-section");
 
 const API_KEY = window.CONFIG?.API_KEY || '8480cb04b62842d8b41f0af968d69401';
 
@@ -181,6 +186,64 @@ window.addEventListener('load', () => {
     }, 150);
   });
 });
+
+function createCard(attraction) {
+    const card = document.createElement('div');
+    card.className = 'attraction-figure';
+    
+    // Create h2 for title
+    const title = document.createElement('h2');
+    title.className = 'figure-head';
+    title.textContent = attraction.title;
+    
+    // Create figure for image
+    const figure = document.createElement('figure');
+    const img = document.createElement('img');
+    img.src = attraction.image;
+    img.alt = attraction.title;
+    img.loading = 'lazy';
+    img.className = "attraction-image";
+    figure.appendChild(img);
+    
+    // Create address tag
+    const address = document.createElement('address');
+    address.className = "place-address";
+    address.textContent = attraction.address;
+    
+    // Create paragraph for description
+    const description = document.createElement('p');
+    description.className = "place-description";
+    description.textContent = attraction.description;
+    
+    // Create button
+    const button = document.createElement('button');
+    button.textContent = 'Learn More';
+    button.addEventListener('click', () => {
+        alert(`You want to learn more about ${attraction.title}!\n\nAddress: ${attraction.address}\n\nThis feature would typically link to a detailed page or open a modal with more information.`);
+    });
+    
+    // Append all elements to card
+    card.appendChild(title);
+    card.appendChild(figure);
+    card.appendChild(address);
+    card.appendChild(description);
+    card.appendChild(button);
+    
+    return card;
+}
+
+function displayPlaces(places) {
+  if (!attractionSection) return;
+  
+  attractionSection.innerHTML = '';
+  
+  places.forEach(places => {
+    const card = createCard(places);
+    attractionSection.appendChild(card);
+  });
+}
+
+displayPlaces(places);
 lastModified.textContent = "Last modified: " + document.lastModified;
 
 

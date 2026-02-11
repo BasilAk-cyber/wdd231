@@ -126,6 +126,58 @@
         gap:30px;
     }
 
+    .discovery-section{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    /*.attraction-figure{
+        display:grid;
+        grid-template-columns: 1fr 3fr;
+        grid-template-areas:
+            "name" "name"
+            "photograph" "description"
+            "photograph" "address"
+            "button" "button";
+        gap: 25px;
+        padding: 40px;
+        width: 100%;
+        max-width: 1200px; 
+        margin: 0 auto;
+        height: 300px;
+
+    }
+
+    .attraction-image {
+        grid-area: photograph;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .figure-head {
+        grid-area: name;
+        text-align: center; 
+        font-size: 2rem;
+    }
+
+    .place-description {
+        grid-area: description;
+        align-self: end; 
+    }
+
+    .place-address {
+        grid-area: address;
+        align-self: start;
+    }
+
+    .attraction-figure button {
+        grid-area: button;
+        justify-self: center;
+        width: 50%; 
+    } */
+
+
     footer{
         background-color:var(--color-border);
         padding: 20px 40px;

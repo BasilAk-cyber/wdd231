@@ -1,0 +1,152 @@
+.discovery-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin: 20px auto;
+    max-width: 1400px; /* Limit maximum width */
+    padding: 0 20px;
+}
+
+.attraction-figure {
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    gap: 15px;
+    /* Mobile-first: stacked layout */
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+        "name"
+        "photograph"
+        "address"
+        "description"
+        "button";
+}
+
+.attraction-image {
+    border-radius: 8px;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    grid-area: photograph;
+}
+
+.figure-head {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 10px;
+    grid-area: name;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.place-address {
+    grid-area: address;
+    padding: 0 10px;
+}
+
+.place-description {
+    grid-area: description;
+    font-family: var(--font-heading);
+    padding: 0 10px;
+    line-height: 1.6;
+}
+
+.attraction-figure button {
+    grid-area: button;
+    padding: 10px 20px;
+    height: 45px;
+    width: 100%;
+    max-width: 300px;
+    align-self: center;
+    justify-self: center;
+    border-radius: 8px;
+    border: none;
+    background-color: black;
+    color: white;
+    font-family: var(--font-heading);
+    margin: 0 auto;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.attraction-figure button:hover {
+    background-color: #333;
+}
+
+/* Tablet breakpoint (768px and up) */
+@media (min-width: 768px) {
+    .discovery-section {
+        gap: 40px;
+    }
+    
+    .attraction-figure {
+        padding: 30px;
+        gap: 20px;
+        /* Two-column layout for tablet */
+        grid-template-columns: 1fr 1.5fr;
+        grid-template-areas: 
+            "photograph name"
+            "photograph address"
+            "photograph description"
+            "photograph button";
+    }
+    
+    .attraction-image {
+        max-height: 400px;
+    }
+    
+    .figure-head {
+        text-align: left;
+        font-size: 1.75rem;
+    }
+}
+
+/* Desktop breakpoint (1024px and up) */
+@media (min-width: 1024px) {
+    .discovery-section {
+        gap: 50px;
+    }
+    
+    .attraction-figure {
+        padding: 40px;
+        gap: 25px;
+        /* Wider two-column layout for desktop */
+        grid-template-columns: 1.2fr 1.8fr;
+        grid-template-areas: 
+            "photograph name"
+            "photograph address"
+            "photograph description"
+            "photograph button";
+    }
+    
+    .attraction-image {
+        max-height: 500px;
+    }
+    
+    .figure-head {
+        font-size: 2rem;
+    }
+}
+
+/* Large desktop breakpoint (1440px and up) */
+@media (min-width: 1440px) {
+    .attraction-figure {
+        padding: 50px;
+        gap: 30px;
+        /* Even wider layout for large screens */
+        grid-template-columns: 1fr 2fr;
+    }
+    
+    .attraction-image {
+        max-height: 600px;
+    }
+}
