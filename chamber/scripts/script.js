@@ -1,4 +1,4 @@
-import { places } from "../data/attraction.mjs";
+import places from "../data/attraction.mjs";
 
 console.log(places);
 
