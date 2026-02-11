@@ -80,7 +80,9 @@ async function getWeatherInfo() {
     }
 }
 
-getWeatherInfo();
+if (temparature && humidity && description) {
+    getWeatherInfo();
+}
 
 async function fetchHighlight() {
   try {
@@ -110,8 +112,9 @@ async function fetchHighlight() {
   }
 }
 
-fetchHighlight();
-
+if (highlight) {
+    fetchHighlight();
+}
 function displayHighlightMembers(memberList) {
   if (!highlight) return;
   
@@ -161,20 +164,26 @@ window.onclick = function(event) {
     }
 }
 
-hamburger.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-})
+if (hamburger && navMenu) {
+    hamburger.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+    });
+}
 
-viewGridBtn.addEventListener("click", () => {
+if (viewGridBtn && directoryDisplay){
+  viewGridBtn.addEventListener("click", () => {
     directoryDisplay.classList.toggle("active");
     viewGridBtn.textContent = 'Display Grid';
-})
+  })
+}
 
-navLinks.forEach(element => {
+if(navLinks){
+  navLinks.forEach(element => {
     element.addEventListener("click", () => {
         navMenu.classList.remove("active");
     })
-});
+  });
+}
 
 // Simple version – or use IntersectionObserver
 window.addEventListener('load', () => {
@@ -243,7 +252,12 @@ function displayPlaces(places) {
   });
 }
 
-displayPlaces(places);
-lastModified.textContent = "Last modified: " + document.lastModified;
+if (attractionSection) {
+    displayPlaces(places);
+}
+if (lastModified) {
+    lastModified.textContent = "Last modified: " + document.lastModified;
+}
+
 
 
