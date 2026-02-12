@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site plan for Personal Movie Library - A dynamic movie discovery and watchlist tracker web application">
+    <meta name="author" content="Student Name">
+    <title>Site Plan - Personal Movie Library</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables - Color Scheme */
+        :root {
+            --primary-dark: #1a1a2e;
+            --primary-accent: #e94560;
+            --secondary-accent: #16213e;
+            --text-light: #f1f1f1;
+            --text-muted: #a0a0a0;
+            --background-dark: #0f0f1e;
+            --card-bg: #252538;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(135deg, var(--background-dark) 0%, var(--primary-dark) 100%);
+            color: var(--text-light);
+            line-height: 1.7;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--secondary-accent);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+            border-bottom: 3px solid var(--primary-accent);
+            padding-bottom: 2rem;
+        }
+
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem;
+            color: var(--primary-accent);
+            letter-spacing: 3px;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.2rem;
+            color: var(--primary-accent);
+            margin: 3rem 0 1rem 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-left: 5px solid var(--primary-accent);
+            padding-left: 1rem;
+        }
+
+        h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            margin: 1.5rem 0 0.8rem 0;
+            letter-spacing: 1px;
+        }
+
+        p, li {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .section {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(233, 69, 96, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.3);
+        }
+
+        .highlight {
+            background: linear-gradient(90deg, var(--primary-accent), #c41e3a);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+
+        ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.8rem;
+        }
+
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .color-card {
+            background: var(--background-dark);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid var(--primary-accent);
+        }
+
+        .color-swatch {
+            width: 100%;
+            height: 80px;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .swatch-dark {
+            background: var(--primary-dark);
+        }
+
+        .swatch-accent {
+            background: var(--primary-accent);
+        }
+
+        .swatch-secondary {
+            background: var(--secondary-accent);
+        }
+
+        .swatch-light {
+            background: var(--text-light);
+        }
+
+        .font-example {
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: var(--background-dark);
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-accent);
+        }
+
+        .font-display {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            color: var(--primary-accent);
+            letter-spacing: 2px;
+        }
+
+        .font-body {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-top: 1rem;
+        }
+
+        .wireframe-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .wireframe-box {
+            background: var(--background-dark);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid var(--primary-accent);
+        }
+
+        .wireframe-box h3 {
+            margin-top: 0;
+            color: var(--primary-accent);
+        }
+
+        .wireframe-sketch {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            min-height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Mobile Wireframe Sketch */
+        .mobile-wireframe {
+            max-width: 200px;
+            margin: 0 auto;
+            background: #f5f5f5;
+            border: 3px solid #333;
+            border-radius: 20px;
+            padding: 1rem 0.5rem;
+        }
+
+        .wire-header {
+            background: var(--primary-dark);
+            height: 40px;
+            border-radius: 5px;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        .wire-nav {
+            background: var(--secondary-accent);
+            height: 30px;
+            border-radius: 5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .wire-hero {
+            background: var(--primary-accent);
+            height: 80px;
+            border-radius: 5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .wire-cards {
+            display: grid;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .wire-card {
+            background: #ddd;
+            height: 60px;
+            border-radius: 5px;
+            border: 2px solid #999;
+        }
+
+        /* Desktop Wireframe Sketch */
+        .desktop-wireframe {
+            background: #f5f5f5;
+            border: 3px solid #333;
+            border-radius: 10px;
+            padding: 1rem;
+            height: 400px;
+        }
+
+        .wire-desktop-header {
+            background: var(--primary-dark);
+            height: 50px;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .wire-desktop-nav {
+            background: var(--secondary-accent);
+            height: 40px;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .wire-desktop-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1rem;
+            height: calc(100% - 120px);
+        }
+
+        .wire-desktop-main {
+            background: #ddd;
+            border-radius: 5px;
+            padding: 0.5rem;
+        }
+
+        .wire-desktop-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+            height: 100%;
+        }
+
+        .wire-desktop-card {
+            background: white;
+            border: 2px solid #999;
+            border-radius: 5px;
+        }
+
+        .wire-desktop-sidebar {
+            background: var(--primary-accent);
+            border-radius: 5px;
+        }
+
+        .note {
+            background: rgba(233, 69, 96, 0.1);
+            border-left: 4px solid var(--primary-accent);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+        }
+
+        .note strong {
+            color: var(--primary-accent);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .wireframe-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--primary-accent);
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Personal Movie Library</h1>
+            <p class="subtitle">Site Plan & Design Document</p>
+        </header>
+
+        <main>
+            <!-- Site Name Section -->
+            <section class="section">
+                <h2>Site Name</h2>
+                <p><span class="highlight">CineVault</span></p>
+                <p><strong>Rationale:</strong> The name "CineVault" combines "cinema" with "vault," suggesting a personal treasure trove of movies. It conveys the idea of carefully curating and storing your favorite films and watchlist in a secure, organized digital space. The name is memorable, modern, and immediately communicates the site's purpose as a movie collection and tracking tool.</p>
+                <div class="note">
+                    <strong>Optional Domain:</strong> cinevault.app or cinevault.io (these domains reflect the modern web app nature of the project)
+                </div>
+            </section>
+
+            <!-- Site Purpose Section -->
+            <section class="section">
+                <h2>Site Purpose</h2>
+                <p>CineVault serves as a comprehensive personal movie discovery and tracking platform that empowers users to:</p>
+                <ul>
+                    <li><strong>Discover New Movies:</strong> Browse a dynamic catalog of popular and trending films fetched from The Movie Database (TMDB) API with detailed information including ratings, release dates, and synopses.</li>
+                    <li><strong>Build a Watchlist:</strong> Save movies to a personal watchlist that persists across sessions using browser local storage, allowing users to track films they want to see.</li>
+                    <li><strong>Search and Filter:</strong> Find specific movies quickly using search functionality and filtering options to narrow down the catalog.</li>
+                    <li><strong>View Detailed Information:</strong> Access comprehensive movie details through an interactive modal interface, including cast, crew, runtime, genres, and user ratings.</li>
+                    <li><strong>Recommend Movies:</strong> Submit movie recommendations through a contact form, fostering a community-oriented approach to movie discovery.</li>
+                </ul>
+                <p>The site provides a seamless, client-side experience without requiring user accounts, making it immediately accessible and privacy-friendly while demonstrating modern web development practices including API integration, asynchronous JavaScript, local data persistence, and responsive design.</p>
+            </section>
+
+            <!-- Scenarios Section -->
+            <section class="section">
+                <h2>Scenarios</h2>
+                <p>These scenarios represent typical questions and use cases from the target audience:</p>
+                
+                <h3>Scenario 1: Discovering New Content</h3>
+                <p><em>"I'm bored and want to find something good to watch tonight. What are some highly-rated movies I haven't seen yet?"</em></p>
+                <p><strong>How CineVault Addresses This:</strong> The home page displays a curated selection of popular movies with ratings and posters. Users can browse the Movies Catalog page to explore 20+ films with detailed information, filtering by rating or genre, and clicking on any movie card to view full details in a modal before adding it to their watchlist.</p>
+
+                <h3>Scenario 2: Managing a Watchlist</h3>
+                <p><em>"I keep forgetting which movies my friends recommended. How can I keep track of what I want to watch?"</em></p>
+                <p><strong>How CineVault Addresses This:</strong> Users can click the "Add to Watchlist" button on any movie card or modal. The watchlist is prominently displayed on the home page and persists across browser sessions using local storage. Users can easily remove movies once they've watched them.</p>
+
+                <h3>Scenario 3: Finding Specific Movies</h3>
+                <p><em>"I heard about a specific movie released in 2023, but I can't remember the full title. How can I find it?"</em></p>
+                <p><strong>How CineVault Addresses This:</strong> The search and filter functionality on the home page allows users to search by title keywords or filter by release year, helping them quickly locate specific movies from the API database.</p>
+
+                <h3>Scenario 4: Sharing Recommendations</h3>
+                <p><em>"I just watched an amazing independent film that's not in the database. How can I suggest it be added?"</em></p>
+                <p><strong>How CineVault Addresses This:</strong> The About/Contact page features a "Recommend a Movie" form where users can submit their name, email, and movie suggestion. The form data is displayed on a confirmation page, acknowledging their contribution.</p>
+            </section>
+
+            <!-- Color Scheme Section -->
+            <section class="section">
+                <h2>Color Scheme</h2>
+                <p>The CineVault color palette evokes a cinema atmosphere with dark, sophisticated tones and vibrant accent colors that create visual hierarchy and guide user attention:</p>
+                
+                <div class="color-palette">
+                    <div class="color-card">
+                        <div class="color-swatch swatch-dark"></div>
+                        <h3>Deep Navy</h3>
+                        <p><code>#1a1a2e</code></p>
+                        <p><strong>Usage:</strong> Primary backgrounds, card containers, main content areas</p>
+                    </div>
+
+                    <div class="color-card">
+                        <div class="color-swatch swatch-accent"></div>
+                        <h3>Crimson Red</h3>
+                        <p><code>#e94560</code></p>
+                        <p><strong>Usage:</strong> Call-to-action buttons, headings, active states, featured elements, watchlist indicators</p>
+                    </div>
+
+                    <div class="color-card">
+                        <div class="color-swatch swatch-secondary"></div>
+                        <h3>Midnight Blue</h3>
+                        <p><code>#16213e</code></p>
+                        <p><strong>Usage:</strong> Secondary backgrounds, navigation bars, card backgrounds, modal overlays</p>
+                    </div>
+
+                    <div class="color-card">
+                        <div class="color-swatch swatch-light"></div>
+                        <h3>Off-White</h3>
+                        <p><code>#f1f1f1</code></p>
+                        <p><strong>Usage:</strong> Body text, headings, primary content, high contrast elements</p>
+                    </div>
+                </div>
+
+                <div class="note">
+                    <strong>Accessibility Note:</strong> All color combinations have been selected to meet WCAG AA contrast standards (4.5:1 for normal text, 3:1 for large text). The crimson accent on dark backgrounds provides excellent visibility while the off-white text ensures readability.
+                </div>
+            </section>
+
+            <!-- Typography Section -->
+            <section class="section">
+                <h2>Typography</h2>
+                <p>CineVault uses a two-font system that balances bold, cinematic impact with clean readability:</p>
+
+                <div class="font-example">
+                    <p class="font-display">Bebas Neue</p>
+                    <p style="margin-top: 0.5rem; color: var(--text-muted); font-size: 0.9rem;">Font Family: 'Bebas Neue', sans-serif</p>
+                    <p style="margin-top: 1rem;"><strong>Usage:</strong> Main headings (h1, h2), page titles, logo, section headers, featured movie titles</p>
+                    <p><strong>Characteristics:</strong> Bold, condensed, all-caps friendly. This display font creates strong visual hierarchy and evokes classic movie poster typography with its commanding presence and cinematic feel.</p>
+                </div>
+
+                <div class="font-example">
+                    <p class="font-body">DM Sans (400, 500, 700)</p>
+                    <p style="margin-top: 0.5rem; color: var(--text-muted); font-size: 0.9rem;">Font Family: 'DM Sans', sans-serif</p>
+                    <p style="margin-top: 1rem;"><strong>Usage:</strong> Body text, paragraphs, movie descriptions, navigation links, form labels, buttons (when not using Bebas Neue), subheadings (h3, h4)</p>
+                    <p><strong>Characteristics:</strong> Clean, modern sans-serif with excellent readability at all sizes. The geometric letterforms maintain clarity in both light and dark themes. Multiple weights (400 regular, 500 medium, 700 bold) provide flexibility for emphasis and visual hierarchy within body content.</p>
+                </div>
+
+                <div class="note">
+                    <strong>Implementation:</strong> Both fonts are loaded via Google Fonts with font-display: swap for optimal performance. Bebas Neue provides cinematic branding while DM Sans ensures comfortable reading of movie descriptions and content.
+                </div>
+            </section>
+
+            <!-- Wireframes Section -->
+            <section class="section">
+                <h2>Wireframes</h2>
+                <p>The following wireframes illustrate the layout structure for the home page across different viewport sizes. These represent the content hierarchy and responsive behavior without final visual design.</p>
+
+                <div class="wireframe-container">
+                    <div class="wireframe-box">
+                        <h3>Mobile View (< 768px)</h3>
+                        <div class="wireframe-sketch">
+                            <div class="mobile-wireframe">
+                                <div class="wire-header">CineVault</div>
+                                <div class="wire-nav">☰ Menu</div>
+                                <div class="wire-hero">Featured Movie</div>
+                                <div class="wire-cards">
+                                    <div class="wire-card">Movie 1</div>
+                                    <div class="wire-card">Movie 2</div>
+                                    <div class="wire-card">Movie 3</div>
+                                    <div class="wire-card">Watchlist</div>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="margin-top: 1rem; font-size: 0.9rem;"><strong>Layout Features:</strong></p>
+                        <ul style="font-size: 0.9rem; text-align: left;">
+                            <li>Hamburger menu for navigation</li>
+                            <li>Single column layout</li>
+                            <li>Stacked movie cards</li>
+                            <li>Full-width featured section</li>
+                            <li>Collapsible watchlist</li>
+                        </ul>
+                    </div>
+
+                    <div class="wireframe-box">
+                        <h3>Desktop View (≥ 768px)</h3>
+                        <div class="wireframe-sketch">
+                            <div class="desktop-wireframe">
+                                <div class="wire-desktop-header"></div>
+                                <div class="wire-desktop-nav"></div>
+                                <div class="wire-desktop-content">
+                                    <div class="wire-desktop-main">
+                                        <div class="wire-desktop-cards">
+                                            <div class="wire-desktop-card"></div>
+                                            <div class="wire-desktop-card"></div>
+                                            <div class="wire-desktop-card"></div>
+                                            <div class="wire-desktop-card"></div>
+                                            <div class="wire-desktop-card"></div>
+                                            <div class="wire-desktop-card"></div>
+                                        </div>
+                                    </div>
+                                    <div class="wire-desktop-sidebar"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="margin-top: 1rem; font-size: 0.9rem;"><strong>Layout Features:</strong></p>
+                        <ul style="font-size: 0.9rem; text-align: left;">
+                            <li>Horizontal navigation bar</li>
+                            <li>Multi-column movie grid (3 columns)</li>
+                            <li>Persistent sidebar with watchlist</li>
+                            <li>Featured movie hero section</li>
+                            <li>Search/filter controls in header</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="note" style="margin-top: 2rem;">
+                    <strong>Responsive Strategy:</strong> The design follows mobile-first principles, starting with a single-column stack and progressively enhancing to multi-column grids on larger screens. The navigation transforms from a hamburger menu to a horizontal nav bar. The watchlist moves from an inline section on mobile to a fixed sidebar on desktop. All interactive elements (cards, modals, buttons) maintain minimum touch target sizes of 44x44px for accessibility.
+                </div>
+            </section>
+
+            <!-- Additional Information Section -->
+            <section class="section">
+                <h2>Technical Implementation Notes</h2>
+                <p>This site plan document demonstrates the selected color scheme and typography through its own styling:</p>
+                <ul>
+                    <li><strong>Color Scheme Applied:</strong> The background uses the deep navy and midnight blue palette, headings use crimson red, and body text uses off-white for optimal contrast.</li>
+                    <li><strong>Typography Applied:</strong> Bebas Neue is used for all headings (h1, h2, h3) while DM Sans is used for body text, lists, and paragraphs.</li>
+                    <li><strong>Responsive Design:</strong> This document is mobile-responsive, with font sizes and padding adjusting for smaller screens.</li>
+                    <li><strong>CSS Variables:</strong> All colors are defined as CSS custom properties for easy theme management and consistency.</li>
+                </ul>
+
+                <h3>Development Standards</h3>
+                <ul>
+                    <li>✓ Valid HTML5 semantic markup</li>
+                    <li>✓ WCAG AA accessibility compliance</li>
+                    <li>✓ Mobile-first responsive design</li>
+                    <li>✓ Optimized performance (< 500KB per page)</li>
+                    <li>✓ SEO optimization with meta tags</li>
+                    <li>✓ Cross-browser compatibility</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p>CineVault Site Plan • Personal Movie Library Project • 2026</p>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem;">This document is a living plan and may be updated as the project develops.</p>
+        </footer>
+    </div>
+</body>
+</html>
