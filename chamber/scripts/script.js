@@ -21,6 +21,7 @@ const sunrise = document.querySelector(".sunrise");
 const sunset = document.querySelector(".sunset");
 const highlight = document.querySelector(".highlight");
 const attractionSection = document.querySelector(".discovery-section");
+const msgEl = document.querySelector('.display-message');
 
 const API_KEY = window.CONFIG?.API_KEY || '8480cb04b62842d8b41f0af968d69401';
 
@@ -32,35 +33,30 @@ function getDaysBetween(date1, date2) {
   return Math.floor(diffMs / msPerDay);
 }
 
-function showVisitMessage() {
+function showLastvisit(){
+
   const now = new Date();
-  const msgEl = document.querySelector('.display-message');
 
   const lastVisitStr = localStorage.getItem(KEY_LAST_VISIT);
-  let message = '';
-  let className = '';
 
-  if (!lastVisitStr) {
-    message = "Welcome! Let us know if you have any questions.";
-  } else {
-    const lastVisit = new Date(lastVisitStr);
-    const daysAgo = getDaysBetween(lastVisit, now);
-
-    if (daysAgo < 1) {
-      message = "Back so soon! Awesome!";
-    } else if (daysAgo === 1) {
-      message = "You last visited 1 day ago.";
-    } else {
-      message = `You last visited ${daysAgo} days ago.`;
-    }
+  if(!lastVisitStr){
+    msgEl.textContent = "Welcome! Let us know if you have any questions.";
+    return;
   }
 
-  msgEl.textContent = message;
+  const lastVisit = new Date(lastVisitStr);
+  const daysAgo = getDaysBetween(lastVisit, now);
+
+  if (daysAgo < 1){
+    msgEl.textContent = "Back so soon! Awesome!";
+  }else {
+      msgEl.textContent = `You last visited ${daysAgo} days ago.`;
+  }
 
   localStorage.setItem(KEY_LAST_VISIT, now.toISOString());
 }
 
-showVisitMessage();
+showLastvisit();
 
 
 
