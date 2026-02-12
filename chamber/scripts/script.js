@@ -24,6 +24,46 @@ const attractionSection = document.querySelector(".discovery-section");
 
 const API_KEY = window.CONFIG?.API_KEY || '8480cb04b62842d8b41f0af968d69401';
 
+const KEY_LAST_VISIT = 'lastVisitTimestamp';
+
+function getDaysBetween(date1, date2) {
+  const msPerDay = 1000 * 60 * 60 * 24;
+  const diffMs = Math.abs(date2 - date1);
+  return Math.floor(diffMs / msPerDay);
+}
+
+function showVisitMessage() {
+  const now = new Date();
+  const msgEl = document.querySelector('.display-message');
+
+  const lastVisitStr = localStorage.getItem(KEY_LAST_VISIT);
+  let message = '';
+  let className = '';
+
+  if (!lastVisitStr) {
+    message = "Welcome! Let us know if you have any questions.";
+  } else {
+    const lastVisit = new Date(lastVisitStr);
+    const daysAgo = getDaysBetween(lastVisit, now);
+
+    if (daysAgo < 1) {
+      message = "Back so soon! Awesome!";
+    } else if (daysAgo === 1) {
+      message = "You last visited 1 day ago.";
+    } else {
+      message = `You last visited ${daysAgo} days ago.`;
+    }
+  }
+
+  msgEl.textContent = message;
+
+  localStorage.setItem(KEY_LAST_VISIT, now.toISOString());
+}
+
+showVisitMessage();
+
+
+
 async function getWeatherInfo() {
     try {
 
@@ -258,42 +298,4 @@ if (attractionSection) {
 if (lastModified) {
     lastModified.textContent = "Last modified: " + document.lastModified;
 }
-
-const KEY_LAST_VISIT = 'lastVisitTimestamp';
-
-function getDaysBetween(date1, date2) {
-  const msPerDay = 1000 * 60 * 60 * 24;
-  const diffMs = Math.abs(date2 - date1);
-  return Math.floor(diffMs / msPerDay);
-}
-
-function showVisitMessage() {
-  const now = new Date();
-  const msgEl = document.querySelector('.display-message');
-
-  const lastVisitStr = localStorage.getItem(KEY_LAST_VISIT);
-  let message = '';
-  let className = '';
-
-  if (!lastVisitStr) {
-    message = "Welcome! Let us know if you have any questions.";
-  } else {
-    const lastVisit = new Date(lastVisitStr);
-    const daysAgo = getDaysBetween(lastVisit, now);
-
-    if (daysAgo < 1) {
-      message = "Back so soon! Awesome!";
-    } else if (daysAgo === 1) {
-      message = "You last visited 1 day ago.";
-    } else {
-      message = `You last visited ${daysAgo} days ago.`;
-    }
-  }
-
-  msgEl.textContent = message;
-
-  localStorage.setItem(KEY_LAST_VISIT, now.toISOString());
-}
-
-showVisitMessage();
 
