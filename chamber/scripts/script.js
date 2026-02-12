@@ -203,7 +203,7 @@ function createCard(attraction) {
     // Create h2 for title
     const title = document.createElement('h2');
     title.className = 'figure-head';
-    title.textContent = attraction.title;
+    title.textContent = attraction.name;
     
     // Create figure for image
     const figure = document.createElement('figure');

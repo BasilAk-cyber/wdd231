@@ -518,6 +518,11 @@ img{
     grid-area:photograph;
 }
 
+figure {
+    width: 400px;
+    height: 300px;
+}
+
 .figure-head{
     font-family: var(--font-heading);
     /* font-weight:700; */
