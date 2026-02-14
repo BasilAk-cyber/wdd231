@@ -498,7 +498,7 @@ img{
 .attraction-figure{
     height: auto;
     border-radius: 8px;
-    box-shadow:0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow:0 4px 6px rgba(0, 0, 0, 0.3);
     padding: 20px;
     width:90%;
     margin:0 auto;
@@ -513,6 +513,7 @@ img{
     "address"
     "description"
     "button";
+    transition: all 0.2s ease;
 
 }
 
@@ -520,10 +521,11 @@ img{
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
     aspect-ratio: 4/3;
-    object-fit: cover;
+    object-fit: contain;
     width: 400px;
     height: 300px;
     grid-area:photograph;
+
 }
 
 figure {
