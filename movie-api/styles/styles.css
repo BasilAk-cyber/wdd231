@@ -96,9 +96,22 @@ nav {
     color:black;
 }
 
+.search-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
 /* Movie Grid */
 .container { padding: 2rem 5%;}
 .movie-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.favourite-grid{
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
@@ -314,6 +327,17 @@ input, textarea {
     justify-content:center;
     background:rgba(0,0,0,0.5);
 }
+
+.back-btn{
+    height:70px;
+    width:70px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(0,0,0,0.5);
+}
+
 
 /* Responsive Hamburger (Logic to be added in JS) */
 @media (min-width: 768px) { /* Simplified for structure */

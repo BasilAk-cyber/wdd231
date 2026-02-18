@@ -1,6 +1,11 @@
 const search = document.querySelector("#movie-search");
 const modalDiv = document.querySelector('#modal');
-console.log(modalDiv)
+const favourite = document.querySelector(".favourite-grid");
+const favouriteCount = document.querySelector(".favourite-count");
+const searchBtn= document.querySelector(".fa-magnifying-glass");
+const backBtn = document.querySelector(".back-btn");
+
+
 
 const API_KEY    = 'a2c591ca1a60a0006587bb9ef83af45f';   // ← replace!
 const IMG_URL    = "https://image.tmdb.org/t/p/w500";
@@ -11,7 +16,7 @@ let favorites    = JSON.parse(localStorage.getItem("favMovies")) || [];
 
 function saveFavorites() {
   localStorage.setItem("favMovies", JSON.stringify(favorites));
-  document.getElementById("fav-count").textContent = favorites.length;
+  //document.getElementById("fav-count").textContent = favorites.length;
 }
 
 function isFavorite(id) {
@@ -22,9 +27,20 @@ function getPoster(path) {
   return path ? IMG_URL + path : "https://via.placeholder.com/300x450?text=No+Poster";
 }
 
+if (favorites.length === 0) {
+  console.log("no favourites yet");
+}
+
 favorites.forEach(element => {
   console.log(element);
 });
+
+console.log(favorites.length);
+
+if (window.location.pathname.includes("favourite.html")) {
+  favouriteCount.textContent = favorites.length;
+}
+
 
 function createCard(movie) {
   const div = document.createElement("div");
@@ -40,7 +56,7 @@ function createCard(movie) {
       <p>${movie.title}</p>
     </div>
     <div class="movie-genre">
-      <p>Kids & Entertainment</p>
+      <p>${movie.release_date.slice(0, 4) || "—"}</p>
     </div>
   `;
 
@@ -48,7 +64,7 @@ function createCard(movie) {
   return div;
 }
 
-const query = search.textContent;
+//const query = search.textContent;
 
 async function loadMovies(query) {
   let url = query
@@ -82,7 +98,7 @@ async function openModal(movieId) {
     const res  = await fetch(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`);
     const data = await res.json();
 
-    //currentMovie = data;
+    currentMovie = data;
 
     modalDiv.appendChild(createModalElement(data));
 
@@ -101,7 +117,7 @@ function createModalElement(movie){
   modalContent.innerHTML = `
     <div class="modal-head">
         <div class="modal-close" id="modal-close" onclick="event.stopPropagation(); closeModal()"><i class="fa-solid fa-arrow-left" style="color: rgb(233, 69, 96); font-size: 24px;"></i></div>
-        <div class="fav-btn-div" onclick="event.stopPropagation(); favouriteBtnClick(${movie})">${updateButtonState(movie.id)}</div>
+        <div class="fav-btn-div" onclick="event.stopPropagation(); favouriteBtnClick()">${updateButtonState(movie.id)}</div>
     </div>
     <div class="modal-body">
         <h2 class="modal-title" id="modal-title">${movie.title}</h2>
@@ -115,8 +131,6 @@ function createModalElement(movie){
 }
 
 function renderFavourite(){
-
-  const favourite = document.querySelector(".favourite-grid");
 
   favorites.forEach((f) => {
     const favCard = createCard(f);
@@ -132,19 +146,25 @@ function updateButtonState(id) {
     return '<i class="fa-regular fa-heart" style="color: rgb(233, 69, 96); font-size:24px;"></i>'
   }
 }
-function favouriteBtnClick(movie){
 
-  const index = favorites.findIndex(m => { m.id === movie.id});
+//Function
+//get id and add to favourite
+// renders favourite by make an api call line by line
+
+function favouriteBtnClick(){
+
+  const index = favorites.findIndex(m => m.id === currentMovie.id);
 
   if(index === -1){
-    favorites.push(movie);
+    favorites.push(currentMovie);
   }else{
     favorites.splice(index, 1)
   }
 
   saveFavorites();
-  closeModal();
-  createModalElement(movie)
+  //closeModal();
+  document.querySelector(".fav-btn-div").innerHTML = "";
+  document.querySelector(".fav-btn-div").innerHTML = updateButtonState(currentMovie.id)
 
 }
 
@@ -153,18 +173,38 @@ function closeModal(){
   document.getElementById("modal").style.display = "none";
 }
 
-search.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        const query = input.value.trim();
-        searchMovies(query);
-    }
-});
+if (search){
+  search.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+          loadMovies(search.value.trim());
+      }
+  });
+}
+
+if (searchBtn) {
+  searchBtn.addEventListener('click', () => {
+    loadMovies(search.value.trim());
+  });
+
+  loadMovies();
+}
+
 
 modalDiv.addEventListener('click', (e) => {
     if (e.target.id === 'modal') {
         closeModal();
     }
 });
-loadMovies("Conclave");
-console.log(updateButtonState())
+
+
+backBtn.addEventListener('click', () => {
+  window.location.href = "index.html";
+})
+
+if (window.location.pathname.includes("favourite.html")) {
+  console.log("on favourites page");
+  console.log("favorites array:", favorites);
+  console.log("favourite grid:", favourite);
+  renderFavourite();
+}
 //openModal(974576);
