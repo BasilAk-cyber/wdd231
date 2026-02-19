@@ -2,10 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>About | CineTrack</title>
-    <link rel="stylesheet" href="styles/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Akanifiok">
+    <meta name="description" content="Track your favorite movies and discover new ones with CineTrack.">
+    <title>CineTrack | About</title>
+
+    <meta property="og:title" content="CineTrack | About">
+    <meta property="og:description" content="Track your favorite movies and discover new ones with CineTrack.">
+    <meta property="og:image" content="https://yourdomain.com/images/cinetrack-og-image.jpg">
+    <meta property="og:url" content="https://yourdomain.com/index.html">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <nav>
@@ -21,7 +35,7 @@
     </nav>
     <div class="hamburger-menu">
         <div>
-            <div><i class="fa-solid fa-x" style="color: rgb(233, 69, 96); font-size:24px;"></i></div>
+            <div class="cancel-btn"><i class="fa-solid fa-x" style="color: rgb(233, 69, 96); font-size:24px;"></i></div>
         </div>
         <ul class="hamburger-links">
             <li><a href="index.html">Home</a></li>
@@ -53,6 +67,9 @@
             <button type="submit" class="btn">Send Recommendation</button>
         </form>
     </main>
+    <footer>
+        <div class="video-btn"><a href="#">View video</a></div>
+    </footer>
     <script>
         document.querySelector('#recommendationForm').addEventListener('submit', function(e){
             e.preventDefault();
@@ -71,6 +88,13 @@
 
             window.location.href = "confirmation.html?" + params;
         });
+
+
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            console.log('hamburger clicked');
+            document.querySelector('.hamburger-menu').style.display = 'flex';
+        });
+
     </script>
 </body>
 </html>

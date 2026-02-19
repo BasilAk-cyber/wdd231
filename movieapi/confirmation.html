@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Akanifiok">
+    <meta name="description" content="Track your favorite movies and discover new ones with CineTrack.">
+    <title>CineTrack | Home</title>
+
+    <meta property="og:title" content="CineTrack | Home">
+    <meta property="og:description" content="Track your favorite movies and discover new ones with CineTrack.">
+    <meta property="og:image" content="https://yourdomain.com/images/cinetrack-og-image.jpg">
+    <meta property="og:url" content="https://yourdomain.com/index.html">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+      :root {
+        --primary-dark: #1a1a2e;
+        --primary-accent: #e94560;
+        --secondary-accent: #16213e;
+        --text-light: #f1f1f1;
+        --text-muted: #a0a0a0;
+        --background-dark: #0f0f1e;
+        --card-bg: #252538;
+
+        --font-heading: "Montserrat", system-ui, sans-serif;
+        --font-body:    "Open Sans", system-ui, sans-serif;
+        --line-height-body: 1.6;
+        --line-height-heading: 1.2;
+      }
+
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background-color: var(--background-dark);
+          color: var(--text-light);
+          line-height: 1.6;
+      }
+
+      span, h1, h2, h3, .section-name, label, .btn {
+          letter-spacing: 2px;
+          color: var(--primary-accent);
+      }
+
+
+      .container {
+        width: 90%;
+        max-width: 720px;
+        margin: 40px auto;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      h1 {
+        color: var(--primary-accent);
+        font-size: 2.4rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+      }
+
+      .subtitle {
+        font-size: 1.25rem;
+        color: #444;
+      }
+
+      .confirmation-card {
+        background: var(--background-dark);
+        border: 1px solid var(--primary-accent);
+        border-radius: 12px;
+        padding: 28px 24px;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        margin-bottom: 40px;
+      }
+
+      .card-title {
+        font-size: 1.65rem;
+        color: var(--color-accent);
+        font-weight: 700;
+        margin-bottom: 24px;
+        padding-bottom: 12px;
+        border-bottom: 2px solid var(--color-primary);
+      }
+
+      .info-grid {
+        display: grid;
+        gap: 18px 24px;
+      }
+
+      .info-row {
+        display: grid;
+        grid-template-columns: 250px 1fr;
+        gap: 16px;
+        align-items: baseline;
+      }
+
+      .info-label {
+        font-weight: 600;
+        color: var(--color-primary);
+        font-size: 1.05rem;
+      }
+
+      .info-value {
+        color: var(--color-text);
+        word-break: break-word;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: var(--primary-accent);
+        color: var(--secondary-accent);
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-decoration: none;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        margin: 20px auto;
+        display: block;
+        width: 240px;
+      }
+
+      .btn:hover {
+        background-color: #751424ff;
+      }
+
+      .timestamp {
+        text-align: center;
+        color: #666;
+        font-size: 0.95rem;
+        margin: 30px 0 50px;
+      }
+
+      footer {
+        background-color: var(--color-border);
+        padding: 24px 20px;
+        text-align: center;
+        font-size: 0.95rem;
+        color: #444;
+        margin-top: 60px;
+      }
+
+      @media (max-width: 520px) {
+        .info-row {
+          grid-template-columns: 1fr;
+          gap: 6px 12px;
+        }
+        .info-label {
+          font-size: 1.05rem;
+        }
+        h1 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <header>
+      <h1>Thank You!</h1>
+      <p class="subtitle">You have sent a Movie Recommendation.</p>
+    </header>
+
+    <div class="confirmation-card">
+      <h2 class="card-title">Your Submitted Details</h2>
+
+      <div class="info-grid">
+        <div class="info-row">
+          <div class="info-label">Name:</div>
+          <div class="info-value" id="firstName">—</div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-label">Email:</div>
+          <div class="info-value" id="email">—</div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-label">Movie Name:</div>
+          <div class="info-value" id="movie-name">—</div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-label">Reason for Recommendation:</div>
+            <div class="info-value" id="description">—</div>
+        </div>
+      </div>
+    </div>
+
+    <a href="index.html" class="btn">Return to Home</a>
+
+    <div class="timestamp">
+      Page loaded: <span id="pageLoadTime"></span>
+    </div>
+
+  </div>
+
+  <footer>
+    © 2026 CineTrack • All rights reserved
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const params = new URLSearchParams(window.location.search);
+
+        name = params.get('name')     || '—',
+        email = params.get('email')         || '—',
+        moviename = params.get('title')  || '—',
+        description = params.get('reason')   || '—',
+        
+        document.querySelector("#firstName").textContent = name;
+        document.querySelector("#email").textContent = email;
+        document.querySelector("#movie-name").textContent = moviename;
+        document.querySelector("#description").textContent = description;
+
+        // Page load time (separate)
+        document.getElementById('pageLoadTime').textContent = new Date().toLocaleString('en-GB', {
+            dateStyle: 'medium',
+            timeStyle: 'short'
+        });
+    });
+  </script>
+
+</body>
+</html>

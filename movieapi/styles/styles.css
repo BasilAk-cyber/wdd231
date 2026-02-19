@@ -20,6 +20,13 @@ body {
     color: var(--text-light);
     line-height: 1.6;
     position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
 }
 
 h1, h2, h3, .logo {
@@ -40,6 +47,25 @@ nav {
     height: 120px;
 }
 
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: rgba(0,0,0,0.9);
+    position: sticky;
+    bottom: 0;
+    z-index: 1000;
+    height: 70px;
+}
+
+/* body {
+    padding-bottom: 70px;
+    overflow-x: hidden;
+}
+.container { 
+    padding: 2rem 5% 5rem; 
+} */
 .nav-links { display: none; list-style: none; gap: 30px; }
 .nav-links a { color: var(--text-light); text-decoration: none; font-weight: bold; padding: 7px 20px; border-radius: 8px; transition: all 0.2s ease;}
 .nav-links a:hover { color: black; background-color: white;}
@@ -103,6 +129,10 @@ nav {
     justify-content:center;
     align-items:center;
 }
+
+.hamburger i {
+    pointer-events: none;
+}
 .hero{
     display:flex;
     justify-content:center;
@@ -136,7 +166,7 @@ nav {
     font-size:32px;
 }
 
-.waitlist-btn{
+.waitlist-btn, .video-btn{
     width:150px;
     padding:10px;
     background-color:var(--primary-accent);

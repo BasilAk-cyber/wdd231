@@ -8,15 +8,19 @@ const hamburgerBtn = document.querySelector(".hamburger");
 const cancelBtn = document.querySelector(".cancel-btn");
 const hamburgerMenu = document.querySelector(".hamburger-menu");
 
-cancelBtn.addEventListener('click', () => {
-  hamburgerBtn.style.display = "none";
-  hamburgerMenu.style.display = "flex";
-});
+if (hamburgerBtn && cancelBtn && hamburgerMenu) {
+  hamburgerBtn.addEventListener('click', () => {
+    hamburgerBtn.style.display = "none";
+    hamburgerMenu.style.display = "flex";
+  });
 
-hamburgerBtn.addEventListener('click', () => {
-  hamburgerBtn.style.display = "none";
-  hamburgerMenu.style.display = "flex";
-});
+  cancelBtn.addEventListener('click', () => {
+    hamburgerMenu.style.display = "none";
+    hamburgerBtn.style.display = "flex";
+  });
+} else {
+  console.warn("Hamburger menu elements missing on this page");
+}
 
 const API_KEY    = 'a2c591ca1a60a0006587bb9ef83af45f';   // ← replace!
 const IMG_URL    = "https://image.tmdb.org/t/p/w500";
@@ -48,10 +52,10 @@ favorites.forEach(element => {
 
 console.log(favorites.length);
 
-if (window.location.pathname.includes("favourite.html")) {
+/* if (window.location.pathname.includes("favourite.html")) {
   favouriteCount.textContent = favorites.length;
 }
-
+ */
 
 function createCard(movie) {
   const div = document.createElement("div");
@@ -201,21 +205,22 @@ if (searchBtn) {
 }
 
 
-modalDiv.addEventListener('click', (e) => {
+if (modalDiv) {
+  modalDiv.addEventListener('click', (e) => {
     if (e.target.id === 'modal') {
-        closeModal();
+      closeModal();
     }
-});
+  });
+}
 
+if(backBtn){
+  backBtn.addEventListener('click', () => {
+    window.location.href = "index.html";
+  })
+}
 
-backBtn.addEventListener('click', () => {
-  window.location.href = "index.html";
-})
-
-if (window.location.pathname.includes("favourite.html")) {
-  console.log("on favourites page");
-  console.log("favorites array:", favorites);
-  console.log("favourite grid:", favourite);
+if (window.location.pathname.includes("favourite.html") && favouriteCount) {
+  favouriteCount.textContent = favorites.length;
   renderFavourite();
 }
 //openModal(974576);
