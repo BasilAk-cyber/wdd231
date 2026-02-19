@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/normalize.css">
 
   <style>
     :root {
@@ -185,7 +186,7 @@
 
         <div class="info-row">
           <div class="info-label">Movie Name:</div>
-          <div class="info-value" id="businessName">—</div>
+          <div class="info-value" id="movie-name">—</div>
         </div>
 
         <div class="info-row">
@@ -211,32 +212,15 @@
     document.addEventListener('DOMContentLoaded', () => {
         const params = new URLSearchParams(window.location.search);
 
-        // Map URL parameters → display IDs
-        const fields = {
-            Name:      params.get('Name')     || '—',
-            email:          params.get('email')         || '—',
-            Moviename:   params.get('movie_title')  || '—',
-            description:    params.get('description')   || '—',
-            
-            // Timestamp (prefer form-submitted one, fallback to now)
-            submissionDate: params.get('submissionDate') || new Date().toLocaleString('en-GB', {
-                dateStyle: 'medium',
-                timeStyle: 'short'
-            })
-        };
-
-        // Fill all fields that exist on the page
-        Object.entries(fields).forEach(([key, value]) => {
-            const el = document.getElementById(key);
-            if (el) {
-                // For description we might want <br> → new lines preserved
-                if (key === 'description') {
-                    el.innerHTML = decodeURIComponent(value).replace(/\n/g, '<br>');
-                } else {
-                    el.textContent = decodeURIComponent(value);
-                }
-            }
-        });
+        name = params.get('name')     || '—',
+        email = params.get('email')         || '—',
+        moviename = params.get('title')  || '—',
+        description = params.get('reason')   || '—',
+        
+        document.querySelector("#firstName").textContent = name;
+        document.querySelector("#email").textContent = email;
+        document.querySelector("#movie-name").textContent = moviename;
+        document.querySelector("#description").textContent = description;
 
         // Page load time (separate)
         document.getElementById('pageLoadTime').textContent = new Date().toLocaleString('en-GB', {

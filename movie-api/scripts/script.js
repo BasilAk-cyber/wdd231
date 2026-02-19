@@ -4,8 +4,19 @@ const favourite = document.querySelector(".favourite-grid");
 const favouriteCount = document.querySelector(".favourite-count");
 const searchBtn= document.querySelector(".fa-magnifying-glass");
 const backBtn = document.querySelector(".back-btn");
+const hamburgerBtn = document.querySelector(".hamburger");
+const cancelBtn = document.querySelector(".cancel-btn");
+const hamburgerMenu = document.querySelector(".hamburger-menu");
 
+cancelBtn.addEventListener('click', () => {
+  hamburgerBtn.style.display = "none";
+  hamburgerMenu.style.display = "flex";
+});
 
+hamburgerBtn.addEventListener('click', () => {
+  hamburgerBtn.style.display = "none";
+  hamburgerMenu.style.display = "flex";
+});
 
 const API_KEY    = 'a2c591ca1a60a0006587bb9ef83af45f';   // ← replace!
 const IMG_URL    = "https://image.tmdb.org/t/p/w500";

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>About | CineTrack</title>
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -14,7 +15,20 @@
             <li><a href="movies.html">Movies</a></li>
             <li><a href="about.html">About</a></li>
         </ul>
+        <div class="hamburger">
+            <i class="fa-solid fa-bars" style="color: rgb(233, 69, 96); font-size:24px;"></i>
+        </div>
     </nav>
+    <div class="hamburger-menu">
+        <div>
+            <div><i class="fa-solid fa-x" style="color: rgb(233, 69, 96); font-size:24px;"></i></div>
+        </div>
+        <ul class="hamburger-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="movies.html">Movies</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </div>
 
     <main class="container">
         <h2>About CineTrack</h2>
@@ -23,7 +37,7 @@
         <hr style="margin: 2rem 0; border: 0.5px solid #333;">
 
         <h3>Recommend a Movie</h3>
-        <form action="confirmation.html" method="GET">
+        <form action="confirmation.html" method="GET" id="recommendationForm">
             <label for="name">Your Name</label>
             <input type="text" id="name" name="name" required>
 
@@ -39,5 +53,24 @@
             <button type="submit" class="btn">Send Recommendation</button>
         </form>
     </main>
+    <script>
+        document.querySelector('#recommendationForm').addEventListener('submit', function(e){
+            e.preventDefault();
+
+            const name = document.querySelector("#name").value.trim();
+            const email = document.querySelector("#email").value.trim();
+            const title = document.querySelector("#movie-title").value.trim();
+            const reason = document.querySelector("#reason").value.trim();
+
+            const params = new URLSearchParams({
+                name: name,
+                email: email,
+                title: title,
+                reason: reason
+            });
+
+            window.location.href = "confirmation.html?" + params;
+        });
+    </script>
 </body>
 </html>

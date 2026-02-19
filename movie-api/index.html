@@ -6,6 +6,7 @@
     <meta name="description" content="Track your favorite movies and discover new ones.">
     <title>CineTrack | Home</title>
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -16,19 +17,21 @@
             <li><a href="movies.html">Movies</a></li>
             <li><a href="about.html">About</a></li>
         </ul>
+        <div class="hamburger">
+            <i class="fa-solid fa-bars" style="color: rgb(233, 69, 96); font-size:24px;"></i>
+        </div>
     </nav>
-
-    <!-- <header class="container">
-        <h2>Featured This Week</h2>
-        <div id="featured-movie" class="hero-section">
-            </div>
-    </header> -->
-
+    <div class="hamburger-menu">
+        <div>
+            <div class="cancel-btn"><i class="fa-solid fa-x" style="color: rgb(233, 69, 96); font-size:24px;"></i></div>
+        </div>
+        <ul class="hamburger-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="movies.html">Movies</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </div>
     <main class="container">
-        <!-- <h3>My Watchlist</h3>
-        <div id="watchlist-grid" class="movie-grid">
-            <p>Your watchlist is empty. Start exploring!</p>
-        </div> -->
         <div class="hero">
             <p class="hero-text"><span class="hero-title">Cine<span class="shadowed-text">Track</span></span><span class="hero-info"><br>Find your <br>favourite movie</span></p>
             <div class="waitlist-btn"><a href="favourite.html">View Favourite</a></div>
