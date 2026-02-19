@@ -417,6 +417,11 @@ input, textarea {
     background:rgba(0,0,0,0.5);
 }
 
+.video-btn a {
+    text-decoration:none;
+    color:black;
+}
+
 .back-btn{
     height:70px;
     width:70px;
