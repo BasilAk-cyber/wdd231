@@ -94,6 +94,10 @@
             console.log('hamburger clicked');
             document.querySelector('.hamburger-menu').style.display = 'flex';
         });
+        document.querySelector('.cancel-btn').addEventListener('click', () => {
+            console.log('cancel clicked');
+            document.querySelector('.hamburger-menu').style.display = 'none';
+        });
 
     </script>
 </body>
