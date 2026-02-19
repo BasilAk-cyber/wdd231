@@ -33,7 +33,7 @@ function saveFavorites() {
   localStorage.setItem("favMovies", JSON.stringify(favorites));
   //document.getElementById("fav-count").textContent = favorites.length;
 }
-
+x
 function isFavorite(id) {
   return favorites.some(m => m.id === id);
 }
@@ -131,7 +131,7 @@ function createModalElement(movie){
   modalContent.className = "modal-content";
   modalContent.innerHTML = `
     <div class="modal-head">
-        <div class="modal-close" id="modal-close" onclick="event.stopPropagation(); closeModal()"><i class="fa-solid fa-arrow-left" style="color: rgb(233, 69, 96); font-size: 24px;"></i></div>
+        <div class="modal-close" id="modal-close" onclick="event.stopPropagation(); closeModal()"><i class="fa-solid fa-arrow-left" style="color: #ff8c00; font-size: 24px;"></i></div>
         <div class="fav-btn-div" onclick="event.stopPropagation(); favouriteBtnClick()">${updateButtonState(movie.id)}</div>
     </div>
     <div class="modal-body">
@@ -156,9 +156,9 @@ function renderFavourite(){
 
 function updateButtonState(id) {
   if (isFavorite(id)) {
-    return '<i class="fa-solid fa-heart" style="color: rgb(233, 69, 96); font-size:24px;"></i>'
+    return '<i class="fa-solid fa-heart" style="color: #ff8c00; font-size:24px;"></i>'
   } else {
-    return '<i class="fa-regular fa-heart" style="color: rgb(233, 69, 96); font-size:24px;"></i>'
+    return '<i class="fa-regular fa-heart" style="color: #ff8c00; font-size:24px;"></i>'
   }
 }
 
