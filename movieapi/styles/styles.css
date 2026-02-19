@@ -1,11 +1,10 @@
 :root {
-    --primary-dark: #1a1a2e;
-    --primary-accent: #e94560;
-    --secondary-accent: #16213e;
-    --text-light: #f1f1f1;
-    --text-muted: #a0a0a0;
-    --background-dark: #0f0f1e;
-    --card-bg: #252538;
+    --primary-accent: #ff8c00;     /* amber/orange - passes AAA on dark */
+    --background-dark: #0a0a0a;    /* deeper black */
+    --card-bg: #1a1a1a;
+    --text-light: #ffffff;          /* pure white - always passes */
+    --text-muted: #c0c0c0;         /* light grey - passes AA */
+    --secondary-accent: #0f0f1f;
 }
 
 * { 
