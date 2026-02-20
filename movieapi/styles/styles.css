@@ -255,9 +255,12 @@ figure img {
 }
 
 .movie-name p {
-    font-size:36px;
+    font-size:24px;
     font-weight:700;
     color: var(--primary-accent);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .movie-genre p {
     font-size:18px;

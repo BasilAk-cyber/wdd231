@@ -33,7 +33,6 @@ function saveFavorites() {
   localStorage.setItem("favMovies", JSON.stringify(favorites));
   //document.getElementById("fav-count").textContent = favorites.length;
 }
-x
 function isFavorite(id) {
   return favorites.some(m => m.id === id);
 }
@@ -195,6 +194,8 @@ if (search){
       }
   });
 }
+
+console.log(searchBtn);
 
 if (searchBtn) {
   searchBtn.addEventListener('click', () => {
