@@ -33,6 +33,7 @@ function saveFavorites() {
   localStorage.setItem("favMovies", JSON.stringify(favorites));
   //document.getElementById("fav-count").textContent = favorites.length;
 }
+
 function isFavorite(id) {
   return favorites.some(m => m.id === id);
 }
